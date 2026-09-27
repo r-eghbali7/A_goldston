@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>خرید آنلاین سکه پارسیان | جواهری پارسیان</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              gold: "#D4AF37",
+              "gold-light": "#F9E076",
+              "background-light": "#f6f6f8",
+              "background-dark": "#0a0c10",
+            },
+            fontFamily: {
+              display: ["Manrope", "Tahoma", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* .gold-gradient-text {
+        background: linear-gradient(to right, #d4af37, #f9e076);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      } */
+      .gold-border-gradient {
+        border: 2px solid transparent;
+        background-image: linear-gradient(#101622, #101622),
+          linear-gradient(to right, #d4af37, #f9e076);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-white font-display min-h-screen"
+  >
+    <!-- Top Navigation Bar -->
+    <header
+      class="border-b border-white/10 bg-background-dark/50 backdrop-blur-md sticky top-0 z-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-10">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+              <div
+                class="size-10 bg-gradient-to-tr from-gold to-gold-light rounded-lg flex items-center justify-center text-background-dark"
+              >
+                <span class="material-symbols-outlined text-3xl font-bold"
+                  >diamond</span
+                >
+              </div>
+              <h2 class="text-xl font-bold tracking-tight gold-gradient-text">
+                جواهری پارسیان
+              </h2>
+            </div>
+            <!-- Navigation Links -->
+            <nav
+              class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400"
+            >
+              <a class="hover:text-gold transition-colors" href="#"
+                >صفحه اصلی</a
+              >
+              <a class="hover:text-gold transition-colors" href="#"
+                >مقالات تخصصی</a
+              >
+              <a class="hover:text-gold transition-colors" href="#">محصولات</a>
+              <a class="hover:text-gold transition-colors" href="#"
+                >درباره ما</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="hidden lg:flex items-center gap-2 px-4 py-2 text-sm text-gray-300 hover:text-white"
+            >
+              <span class="material-symbols-outlined text-xl">search</span>
+              جستجو
+            </button>
+            <button
+              class="bg-primary hover:bg-primary/80 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-primary/20"
+            >
+              ورود / ثبت‌نام
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 py-10">
+      <!-- Page Title -->
+      <div class="mb-10 text-right">
+        <h1 class="text-4xl font-bold mb-2">خرید آنلاین سکه پارسیان</h1>
+        <p class="text-gray-400">
+          قیمت‌ها به صورت لحظه‌ای و بر اساس نرخ بازار طلا بروزرسانی می‌شوند.
+        </p>
+      </div>
+      <!-- Live Market Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all group"
+        >
+          <p class="text-gray-400 text-xs mb-1">دلار آمریکا</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۶۰,۸۰۰</span>
+            <span class="text-emerald-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs">trending_up</span
+              >+۰.۸٪</span
+            >
+          </div>
+        </div>
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all"
+        >
+          <p class="text-gray-400 text-xs mb-1">انس طلا</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۲,۳۴۰</span>
+            <span class="text-rose-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs"
+                >trending_down</span
+              >-۰.۱٪</span
+            >
+          </div>
+        </div>
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all"
+        >
+          <p class="text-gray-400 text-xs mb-1">طلای ۱۸ عیار</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۳,۴۵۰,۰۰۰</span>
+            <span class="text-emerald-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs">trending_up</span
+              >+۱.۲٪</span
+            >
+          </div>
+        </div>
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all"
+        >
+          <p class="text-gray-400 text-xs mb-1">سکه امامی</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۴۱,۲۰۰,۰۰۰</span>
+            <span class="text-emerald-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs">trending_up</span
+              >+۰.۵٪</span
+            >
+          </div>
+        </div>
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all"
+        >
+          <p class="text-gray-400 text-xs mb-1">سکه بهار آزادی</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۳۸,۵۰۰,۰۰۰</span>
+            <span class="text-emerald-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs">trending_up</span
+              >+۰.۴٪</span
+            >
+          </div>
+        </div>
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-gold/30 transition-all"
+        >
+          <p class="text-gray-400 text-xs mb-1">یورو</p>
+          <div class="flex items-end justify-between">
+            <span class="text-lg font-bold">۶۵,۱۰۰</span>
+            <span class="text-rose-500 text-xs flex items-center gap-0.5"
+              ><span class="material-symbols-outlined text-xs"
+                >trending_down</span
+              >-۰.۲٪</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Configuration Form -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div
+              class="flex items-center gap-3 mb-8 border-b border-white/10 pb-4"
+            >
+              <span class="material-symbols-outlined text-gold"
+                >settings_suggest</span
+              >
+              <h2 class="text-xl font-bold">تنظیمات سفارش</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Weight Dropdown -->
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-300"
+                  >وزن سکه پارسیان</label
+                >
+                <select
+                  class="form-input w-full rounded-lg bg-[#192233] border-white/10 text-white h-12 px-4 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+                >
+                  <option value="100">۱۰۰ سوت</option>
+                  <option value="200">۲۰۰ سوت</option>
+                  <option value="500">۵۰۰ سوت</option>
+                  <option value="1000">۱ گرم (۱۰۰۰ سوت)</option>
+                  <option value="2000">۲ گرم</option>
+                  <option value="2500">۲.۵ گرم</option>
+                </select>
+              </div>
+              <!-- Quantity Dropdown -->
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-300">تعداد</label>
+                <select
+                  class="form-input w-full rounded-lg bg-[#192233] border-white/10 text-white h-12 px-4 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+                >
+                  <option value="1">۱ عدد</option>
+                  <option value="2">۲ عدد</option>
+                  <option value="5">۵ عدد</option>
+                  <option value="10">۱۰ عدد</option>
+                  <option value="20">۲۰ عدد</option>
+                </select>
+              </div>
+              <!-- Packaging Dropdown -->
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-300"
+                  >نوع بسته‌بندی</label
+                >
+                <select
+                  class="form-input w-full rounded-lg bg-[#192233] border-white/10 text-white h-12 px-4 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+                >
+                  <option value="standard">بسته‌بندی استاندارد بانکی</option>
+                  <option value="gift">
+                    باکس هدیه لوکس جواهری (+۵۰,۰۰۰ تومان)
+                  </option>
+                  <option value="limited">نسخه کلکسیونی (لمینت)</option>
+                </select>
+              </div>
+              <!-- Delivery Dropdown -->
+              <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-gray-300"
+                  >شیوه ارسال</label
+                >
+                <select
+                  class="form-input w-full rounded-lg bg-[#192233] border-white/10 text-white h-12 px-4 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+                >
+                  <option value="courier">پیک موتوری (ویژه تهران)</option>
+                  <option value="post">پست پیشتاز سفارشی</option>
+                  <option value="in_person">تحویل حضوری در شعبه بازار</option>
+                </select>
+              </div>
+              <!-- Insurance Dropdown -->
+              <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="text-sm font-medium text-gray-300"
+                  >خدمات بیمه مرسوله</label
+                >
+                <select
+                  class="form-input w-full rounded-lg bg-[#192233] border-white/10 text-white h-12 px-4 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+                >
+                  <option value="full">
+                    بیمه کامل طلایی (تضمین امنیت فیزیکی)
+                  </option>
+                  <option value="basic">بیمه پایه پست</option>
+                  <option value="none">بدون بیمه اضافه</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- Info Banner -->
+          <div
+            class="bg-primary/10 border border-primary/20 rounded-xl p-4 flex gap-4 items-start"
+          >
+            <span class="material-symbols-outlined text-primary">info</span>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              تمامی سکه‌های پارسیان عرضه شده در این سامانه دارای هولوگرام امنیتی
+              و ضمانت اصالت عیار ۷۵۰ (۱۸ عیار) می‌باشند.
+            </p>
+          </div>
+        </div>
+        <!-- Price Summary & Checkout -->
+        <div class="lg:col-span-1">
+          <div
+            class="gold-border-gradient rounded-2xl p-8 sticky top-28 shadow-2xl shadow-gold/5"
+          >
+            <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined text-gold"
+                >shopping_basket</span
+              >
+              خلاصه فاکتور
+            </h3>
+            <div class="space-y-4 mb-8">
+              <div class="flex justify-between text-sm text-gray-400">
+                <span>قیمت پایه طلا:</span>
+                <span>۳,۴۵۰,۰۰۰ تومان</span>
+              </div>
+              <div class="flex justify-between text-sm text-gray-400">
+                <span>وزن انتخاب شده:</span>
+                <span>۱ گرم</span>
+              </div>
+              <div class="flex justify-between text-sm text-gray-400">
+                <span>اجرت و مالیات:</span>
+                <span>۲۸۰,۰۰۰ تومان</span>
+              </div>
+              <div
+                class="flex justify-between text-sm text-gray-400 border-b border-white/10 pb-4"
+              >
+                <span>هزینه بسته‌بندی:</span>
+                <span>رایگان</span>
+              </div>
+              <div class="flex flex-col gap-2 pt-2">
+                <span class="text-sm text-gold">مبلغ نهایی قابل پرداخت:</span>
+                <div class="flex items-center gap-1">
+                  <span class="text-3xl font-bold">۳,۷۳۰,۰۰۰</span>
+                  <span class="text-sm text-gray-400">تومان</span>
+                </div>
+              </div>
+            </div>
+            <button
+              class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all transform active:scale-[0.98]"
+            >
+              <span class="material-symbols-outlined">payments</span>
+              پرداخت آنلاین و ثبت نهایی
+            </button>
+            <div class="mt-6 flex justify-center gap-6">
+              <div
+                class="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100"
+              >
+              <img
+                alt="Pattern"
+                class="h-10"
+                src="{% static 'image/back.webp' %}" 
+              />
+              </div>
+              <div
+                class="flex flex-col items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100"
+              >
+              <img
+                alt="Pattern"
+                class="h-10"
+                src="{% static 'image/fornt.webp' %}" 
+              />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Featured Articles Section -->
+      <section class="mt-24">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-gold">menu_book</span>
+            دانشنامه سکه و طلا
+          </h2>
+          <a
+            class="text-primary hover:text-primary/80 font-medium text-sm flex items-center gap-1"
+            href="#"
+          >
+            مشاهده همه مقالات
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+          </a>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Article 1 -->
+          <div
+            class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all group"
+          >
+            <div
+              class="h-48 bg-cover bg-center"
+              data-alt="Close up of gold coins on a velvet cloth"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAu2LRXAYx7QbfnG8ZXqomVrrSmVwwbQLm4BDBrsVojHXCQkaNDuHTlYQHFr0oCZ9FJFpy07OyjKfIFFHMmkrKcB2B0Ccg5APgwJIMMOINt1fqboOMM00QdpbYIW0SNDW41IgRCst6zD_OXy8JB3eX9bgPU7eN_7KjErVRM5VriIgQmx07Br9X4j0FIKztFnxfhfrU7F8fU65jSs0Ug-2t8_aEyYyaHnXPCSxSUZkM4ieZAJD6kQ-1S6SsbZCOoX8qaxo3PX4RWO8P4');
+              "
+            ></div>
+            <div class="p-6">
+              <span class="text-xs text-gold font-bold mb-2 block uppercase"
+                >راهنمای خرید</span
+              >
+              <h3
+                class="text-lg font-bold mb-3 group-hover:text-gold transition-colors"
+              >
+                چگونه اصالت سکه پارسیان را تشخیص دهیم؟
+              </h3>
+              <p class="text-sm text-gray-400 line-clamp-2">
+                در این مقاله به بررسی ویژگی‌های امنیتی هولوگرام‌ها و نحوه تشخیص
+                وزن واقعی سکه می‌پردازیم...
+              </p>
+            </div>
+          </div>
+          <!-- Article 2 -->
+          <div
+            class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all group"
+          >
+            <div
+              class="h-48 bg-cover bg-center"
+              data-alt="A safe box filled with gold bars and documents"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXicQkDcqGDYVoAEPlWWXk0EwtbKqW32wqjAKMHrk2-VzTsIOPn21JBljhaiyDyDZkCT-xy4aK96bl1glrR6hTx_8Q-Bwan31gxnyqsXgqbm4-LiLjHZPHgHbXLx1DRoteD2LIgUtAYzCK0fG0uuPE4ibUcwMfEDN4e4BfcRpNfb7qqa0xkhuu9gHef7FCJT64JBEP4SCGHglQp-kc5vE-EPfgYki9xb0Do9qZQhDlIJUZLanjuIUXzqNGFJCuwg2Rv_Gwyxzgz5uS');
+              "
+            ></div>
+            <div class="p-6">
+              <span class="text-xs text-gold font-bold mb-2 block uppercase"
+                >سرمایه‌گذاری</span
+              >
+              <h3
+                class="text-lg font-bold mb-3 group-hover:text-gold transition-colors"
+              >
+                مزایای خرید سکه پارسیان نسبت به طلای آب شده
+              </h3>
+              <p class="text-sm text-gray-400 line-clamp-2">
+                بررسی نقدشوندگی و کارمزد معاملات در بازار طلای ایران و بهترین
+                استراتژی برای سرمایه‌های خرد...
+              </p>
+            </div>
+          </div>
+          <!-- Article 3 -->
+          <div
+            class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:translate-y-[-4px] transition-all group"
+          >
+            <div
+              class="h-48 bg-cover bg-center"
+              data-alt="Digital graphs showing gold price fluctuations"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA78rcHDtfUEt1LwxmXDvFNPCZBMvMSiJterpBGo6inANh8bOcjHPJ17jFGVsF4tr7UTrsLBjHGu0lwLsuO5PHjrn-d8ZxgSpnUeHHanM8WQr1QYpYXHq6KNoAzHT_WyCMNZgbCLxeBtzW-2bMeSuC_5WQitGrxc1oGDE008f2AOZQ7-5ENKNbqNWSolzrbBTWvvSUL-ZsA2QPbcbcEQp9AtYS7AJ0A7Z-_oziFM5hcWN23wM8Girqu3GRpksw6FesrqAloSbT-VIdG');
+              "
+            ></div>
+            <div class="p-6">
+              <span class="text-xs text-gold font-bold mb-2 block uppercase"
+                >تحلیل بازار</span
+              >
+              <h3
+                class="text-lg font-bold mb-3 group-hover:text-gold transition-colors"
+              >
+                پیش‌بینی قیمت طلا در ماه‌های آینده
+              </h3>
+              <p class="text-sm text-gray-400 line-clamp-2">
+                تحلیل تکنیکال و فاندامنتال انس جهانی و تاثیر آن بر بازار داخلی
+                طلا و جواهر ایران در سال ۱۴۰۳...
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-background-dark border-t border-white/5 mt-20 py-12">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div
+              class="size-8 bg-gold rounded flex items-center justify-center text-background-dark"
+            >
+              <span class="material-symbols-outlined font-bold">diamond</span>
+            </div>
+            <h2 class="text-xl font-bold gold-gradient-text">جواهری پارسیان</h2>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-md">
+            مجموعه جواهری پارسیان با بیش از دو دهه تجربه در بازار طلای ایران،
+            پیشرو در ارائه خدمات آنلاین خرید و فروش مسکوکات طلا با ضمانت اصالت و
+            فاکتور رسمی معتبر است.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-6 text-white">دسترسی سریع</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li><a class="hover:text-gold" href="#">سوالات متداول</a></li>
+            <li><a class="hover:text-gold" href="#">رهگیری سفارشات</a></li>
+            <li><a class="hover:text-gold" href="#">قوانین و مقررات</a></li>
+            <li><a class="hover:text-gold" href="#">ارتباط با مدیریت</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-6 text-white">تماس با ما</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-gold text-lg"
+                >phone</span
+              >
+              ۰۲۱-۱۲۳۴۵۶۷۸
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-gold text-lg"
+                >location_on</span
+              >
+              تهران، بازار بزرگ، سرای طلا
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-gold text-lg"
+                >mail</span
+              >
+              info@parsian-jewelry.ir
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/5 text-center text-xs text-gray-500"
+      >
+        تمامی حقوق مادی و معنوی این وب‌سایت متعلق به جواهری پارسیان می‌باشد.
+      </div>
+    </footer>
+  </body>
+</html>

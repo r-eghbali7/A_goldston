@@ -1,0 +1,64 @@
+<aside class="lg:col-span-4 flex flex-col gap-8 sticky top-24">
+
+  <!-- Most Popular Widget -->
+  <div class="bg-card-dark rounded-xl border border-[#232f48] overflow-hidden">
+    <div class="bg-[#1e2736] px-5 py-4 border-b border-[#232f48] flex items-center justify-between">
+      <h3 class="text-white font-bold text-lg">محبوب‌ترین‌ها</h3>
+      <span class="material-symbols-outlined text-gold">trending_up</span>
+    </div>
+    <div class="divide-y divide-[#232f48]">
+      {% for ppost in popular_posts %}
+      <a class="flex gap-4 p-4 hover:bg-[#1e2736] transition-colors group"
+         href="{% url 'blog:post_detail' ppost.slug %}">
+        <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
+          {% if ppost.image %}
+          <img class="w-full h-full object-cover group-hover:scale-110 transition-transform"
+               src="{{ ppost.image.url }}"
+               alt="{{ ppost.title }}">
+          {% else %}
+          <div class="w-full h-full bg-gray-700 flex items-center justify-center text-white text-xs">
+            بدون تصویر
+          </div>
+          {% endif %}
+        </div>
+        <div class="flex flex-col justify-center">
+          <h4 class="text-white text-sm font-medium leading-snug group-hover:text-gold transition-colors line-clamp-2">
+            {{ ppost.title }}
+          </h4>
+        </div>
+      </a>
+      {% empty %}
+      <p class="p-4 text-gray-400 text-sm">مقاله‌ای موجود نیست</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Latest Articles Widget -->
+  <div class="bg-card-dark rounded-xl border border-[#232f48] overflow-hidden">
+    <div class="bg-[#1e2736] px-5 py-4 border-b border-[#232f48] flex items-center justify-between">
+      <h3 class="text-white font-bold text-lg">آخرین مقالات</h3>
+      <span class="material-symbols-outlined text-primary">new_releases</span>
+    </div>
+    <div class="flex flex-col p-2 gap-2">
+      {% for lpost in latest_posts %}
+      <a class="block p-3 rounded-lg hover:bg-[#1e2736] transition-colors"
+         href="{% url 'blog:post_detail' lpost.slug %}">
+        <span class="text-gold text-xs font-bold mb-1 block">
+          {{ lpost.category.name }}
+        </span>
+        <h4 class="text-white text-sm font-medium">
+          {{ lpost.title }}
+        </h4>
+      </a>
+      {% empty %}
+      <p class="text-gray-400 text-sm p-3">هیچ مقاله‌ای موجود نیست</p>
+      {% endfor %}
+      <div class="p-4 border-t border-[#232f48]">
+        <a href="{% url 'blog:post_list' %}" class="w-full block text-center py-2.5 text-sm font-bold text-white border border-[#232f48] hover:border-gold hover:text-gold rounded-lg transition-all">
+          مشاهده آرشیو مقالات
+        </a>
+      </div>
+    </div>
+  </div>
+
+</aside>

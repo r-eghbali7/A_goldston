@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load jformat %}
+{% load jalali_filters %}
+
+
+{% block title %}
+  مقالات
+{% endblock title %}
+  
+
+{% block content %}
+<!-- Main Content Area -->
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="w-full flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[1200px] flex-1 px-4 lg:px-8"
+          >
+            <!-- Breadcrumbs -->
+            <div class="flex flex-wrap gap-2 px-4 py-2 mb-4">
+              <a
+                class="text-[#92a4c9] hover:text-white transition-colors text-sm font-medium leading-normal"
+                href="{% url 'home:index' %}"
+                >خانه</a
+              >
+              <span class="text-[#92a4c9] text-sm font-medium leading-normal"
+                >/</span
+              >
+              <a class="text-[#92a4c9] hover:text-white transition-colors" href="{% url 'blog:post_list' %}"
+                >مقالات گلدستون</a
+              >
+            </div>
+            
+            <!-- Header Image / Hero -->
+            <div class="@container mb-8">
+              <div
+                class="relative overflow-hidden rounded-2xl min-h-[280px] bg-surface-highlight flex flex-col justify-end"
+              >
+                <div class="absolute inset-0">
+                  <img
+                    src="{% static 'image/blog_banner.webp' %}"
+                    alt="Dark luxury abstract background with golden bokeh lights"
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute inset-0"
+                       style="background: linear-gradient(
+                           0deg,
+                           rgba(16, 22, 34, 0.9) 0%,
+                           rgba(16, 22, 34, 0.2) 60%
+                       );">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chips / Filter Categories -->
+            <div class="flex gap-3 px-1 pb-6 flex-wrap overflow-x-auto no-scrollbar">
+              <!-- همه مطالب -->
+              <a href="{% url 'blog:post_list' %}"
+                class="category-btn flex h-9 shrink-0 items-center justify-center rounded-lg
+                {% if not active_category %}bg-primary text-white{% else %}bg-surface-highlight text-white border border-white/5{% endif %}
+                px-5 transition-all">
+                همه مطالب
+              </a>
+
+              <!-- دسته‌بندی‌ها -->
+              {% for category in categories %}
+                <a href="{% url 'blog:post_list_by_category' category.slug %}"
+                  class="category-btn flex h-9 shrink-0 items-center justify-center rounded-lg
+                  {% if active_category and active_category.slug == category.slug %}
+                      bg-primary text-white
+                  {% else %}
+                      bg-surface-highlight text-white border border-white/5
+                  {% endif %}
+                  px-5 transition-all">
+                  {{ category.name }}
+                </a>
+              {% endfor %}
+            </div>
+
+            <!-- Article List (Grid Layout) -->
+            <div class="grid grid-cols-1 gap-5 mb-10">
+              {% for post in posts %}
+              <div class="@container">
+                <div class="flex flex-col items-stretch justify-start rounded-xl overflow-hidden shadow-lg shadow-black/20 bg-surface-dark border border-white/5 transition-transform hover:-translate-y-1 hover:shadow-primary/5 @xl:flex-row">
+                  
+                  <!-- تصویر پست -->
+                  <div class="w-full @xl:w-[320px] shrink-0 aspect-video @xl:aspect-auto">
+                      <a href="{% url 'blog:post_detail' post.slug %}">
+                        <img 
+                        src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'image/1.jpg' %}{% endif %}"
+                        alt="{{ post.title }}" 
+                        class="w-full h-full object-cover bg-center bg-no-repeat rounded-lg"
+                        />
+                      </a>
+                  </div>
+                  <div class="flex w-full grow flex-col justify-center gap-3 p-5 @xl:p-6">
+                    <!-- دسته‌بندی و مدت زمان مطالعه -->
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent-gold text-xs font-bold uppercase tracking-wider bg-accent-gold/10 px-2 py-1 rounded">
+                        {{ post.category.name }}
+                      </span>
+                      <span class="text-[#58698a] text-xs">•</span>
+                      <p class="text-[#92a4c9] text-xs font-normal">
+                        خواندن: {{ post.read_time }} دقیقه
+                      </p>
+                    </div>
+
+                    <!-- عنوان -->
+                    <h3 class="text-white text-xl font-bold leading-tight tracking-tight hover:text-primary cursor-pointer transition-colors">
+                      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </h3>
+
+                    <!-- توضیحات -->
+                    <p class="text-[#92a4c9] text-sm line-clamp-2 leading-relaxed">
+                      {{ post.description }}
+                    </p>
+
+                    <!-- تاریخ و نویسنده -->
+                    <div class="flex items-center justify-between mt-2 pt-4 border-t border-white/5">
+                      <div class="flex items-center gap-4 text-[#92a4c9]">
+                        <div class="flex items-center gap-1.5">
+                          <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                          <span class="text-xs">{{ post.created|jalali_date_verbose }}</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                          <span class="material-symbols-outlined text-[18px]">person</span>
+                          <span class="text-xs">{{ post.author.full_name }}</span>
+                        </div>
+                      </div>
+                      <a href="{{ post.get_absolute_url }}" class="text-primary hover:text-white text-sm font-bold flex items-center gap-1 transition-colors">
+                        ادامه مطلب
+                        <span class="material-symbols-outlined text-[16px] rotate-180">arrow_right_alt</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+                <p class="text-white">هیچ مطلبی برای نمایش وجود ندارد.</p>
+              {% endfor %}
+            </div>
+
+            <!-- سیستم صفحه‌بندی -->
+            {% if is_paginated %}
+            <div class="flex justify-center items-center gap-2 mb-16">
+              
+              <!-- دکمه صفحه قبلی -->
+              {% if page_obj.has_previous %}
+              <a href="?page={{ page_obj.previous_page_number }}" class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-highlight text-white border border-white/5 hover:bg-primary transition-all">
+                <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+              </a>
+              {% endif %}
+
+              <!-- شماره صفحات -->
+              {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                  <!-- صفحه فعال -->
+                  <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white font-bold cursor-default">
+                    {{ num }}
+                  </span>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                  <!-- صفحات دیگر (تا دو صفحه قبل و بعد) -->
+                  <a href="?page={{ num }}" class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-highlight text-white border border-white/5 hover:bg-primary transition-all">
+                    {{ num }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+
+              <!-- دکمه صفحه بعدی -->
+              {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}" class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-highlight text-white border border-white/5 hover:bg-primary transition-all">
+                <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+              </a>
+              {% endif %}
+
+            </div>
+            {% endif %}
+            <!-- پایان صفحه‌بندی -->
+
+            <!-- Exchange Rates Section (Footer Widget) -->
+            {% include 'includes/chart_gold_price.html' %}
+          </div>
+        </div>
+      </div>
+{% endblock content %}
+
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock footer %}
+  
+
+{% block js %}
+<script>
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryButtons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-white');
+        b.classList.add('bg-surface-highlight', 'text-white', 'border', 'border-white/5');
+      });
+      btn.classList.add('bg-primary', 'text-white');
+      btn.classList.remove('bg-surface-highlight', 'border', 'border-white/5');
+    });
+  });
+</script>
+{% endblock js %}

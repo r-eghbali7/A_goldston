@@ -1,0 +1,266 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %} | گلدستون</title>
+
+  <link rel="icon" href="{% static 'image/logo.svg' %}" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="{% static 'image/logo.png' %}" type="image/png" sizes="42x42">
+
+
+  {% block head %}
+
+  {% endblock head %}
+
+
+  {% if canonical_url %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% endif %}
+
+  <script src="{% static 'js/tailwindcss.js' %}"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1152d4",
+            "accent-gold": "#D4AF37",
+            "gold-light": "#F2D87B",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "card-dark": "#192233",
+            "card-border": "#232f48",
+            "card-bg": "#192233",
+            "border-color": "#324467",
+
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <link href="{% static 'css/fonts_googleapis.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+
+  {% block style %}
+
+  {% endblock style %}
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full border-b border-card-border bg-[#111722]/90 backdrop-blur-md">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white transition focus:outline-none"
+          aria-label="Open menu">
+          <span class="material-symbols-outlined text-accent-gold !text-[28px]">
+            menu
+          </span>
+        </button>
+
+        <!-- Logo -->
+        <a href="{% url 'home:index' %}" class="flex items-center gap-3">
+          <img src="{% static 'image/logo.png' %}" alt="وبسایت طلا گلدستون" class="h-14 w-auto object-contain" />
+          <p class="hidden lg:inline-block text-xl font-bold text-white tracking-tight">
+            گلدستون
+          </p>
+        </a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-medium text-white hover:text-accent-gold transition-colors"
+            href="{% url 'home:parsian_prices' %}">قیمت سکه پارسیان</a>
+          <a class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors"
+            href="{% url 'blog:post_list' %}">مقالات</a>
+
+
+          <a href="{% url 'home:parsian' %}"
+            class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors">
+            خرید سکه پارسیان
+          </a>
+          <a class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors"
+            href="{% url 'home:calculator' %}">محاسبه گر طلا</a>
+          <div class="relative group">
+            <!-- خدمات -->
+            <a href="#"
+              class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors flex items-center gap-1">
+              خدمات
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor"
+                stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            <!-- Dropdown -->
+            <div class="absolute right-0 top-full w-56 rounded-xl bg-[#0f172a]
+                      border border-white/10 shadow-lg
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                      transition-all duration-200 pt-2">
+              <div class="flex flex-col py-2">
+                <a href="{% url 'home:akase' %}"
+                  class="px-4 py-2 text-sm text-slate-300 hover:text-accent-gold hover:bg-white/5 transition">
+                  خدمات عکاسی
+                </a>
+
+
+
+                <a href="{% url 'home:tarahe_site' %}"
+                  class="px-4 py-2 text-sm text-slate-300 hover:text-accent-gold hover:bg-white/5 transition">
+                  خدمات طراحی سایت
+                </a>
+              </div>
+            </div>
+          </div>
+          <a class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors hidden" href="#">درباره
+            ما</a>
+          <a class="text-sm font-medium text-slate-300 hover:text-accent-gold transition-colors hidden" href="#">تماس با
+            ما</a>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm h-screen
+                  opacity-0 pointer-events-none transition-opacity duration-300">
+          <!-- Drawer -->
+          <div class="mobile-drawer h-screen absolute right-0 top-0 w-72
+                    bg-card-dark border-l border-card-border p-6
+                    flex flex-col gap-4
+                    translate-x-full transition-transform duration-300 ease-out">
+            <!-- Close -->
+            <button id="close-mobile-menu" class="self-end text-slate-300 text-2xl" aria-label="Close menu">
+              ✕
+            </button>
+
+            <a href="{% url 'home:parsian_prices' %}" class="mobile-link">قیمت سکه پارسیان</a>
+            <a href="{% url 'blog:post_list' %}" class="mobile-link">مقالات</a>
+            <a href="{% url 'home:calculator' %}" class="mobile-link">محاسبه‌گر طلا</a>
+
+            <div class="border-t border-card-border my-2"></div>
+
+            <a href="{% url 'home:akase' %}" class="mobile-link">خدمات عکاسی</a>
+            <a href="{% url 'home:parsian' %}" class="mobile-link">لندینگ پیج سکه</a>
+            <a href="{% url 'home:tarahe_site' %}" class="mobile-link">طراحی سایت</a>
+
+            <div class="mt-auto">
+              {% if user.is_authenticated %}
+              <a href="{% url 'accounts:profile' %}"
+                class="mobile-cta 
+                  bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors shadow-[0_0_15px_rgba(17,82,212,0.4)]">
+                پنل کاربری
+              </a>
+              {% else %}
+              <a href="{% url 'accounts:login' %}"
+                class="mobile-cta 
+                  bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors shadow-[0_0_15px_rgba(17,82,212,0.4)]">
+                عضویت
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Actions -->
+        <!-- Desktop search box -->
+        <div class="hidden lg:inline-block relative group">
+          <div class="flex items-center bg-slate-800/50 rounded-xl px-3 py-1
+                border border-slate-700/50 focus-within:border-accent-gold/50
+                focus-within:ring-1 focus-within:ring-accent-gold/20
+                transition-all duration-300 w-64">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400 group-focus-within:text-accent-gold
+                    transition-colors duration-200 ml-2 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+
+            <!-- فیلد جستجو — data-live-search فعال‌سازی جستجوی زنده -->
+            <input type="text" data-live-search="true" class="bg-transparent border-none text-sm text-white
+                      placeholder-slate-400 focus:ring-0 w-full p-1" placeholder="جستجوی مقالات..."
+              aria-label="جستجوی مقالات" />
+
+            <!-- نشانگر میانبر کیبورد -->
+            <kbd class="hidden lg:inline-flex items-center px-1.5 py-0.5
+                    text-[10px] text-slate-500 bg-slate-700/50 rounded
+                    border border-slate-600/30 mr-1 flex-shrink-0">
+              /
+            </kbd>
+          </div>
+        </div>
+
+
+        <!-- Mobile search box -->
+        <!-- <div class="inline md:hidden px-4 pt-4 pb-2">
+          <div class="relative flex items-center bg-slate-800/50 rounded-xl px-3 py-2.5
+                            border border-slate-700/50 focus-within:border-accent-gold/50">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400 ml-2" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+
+            <input type="text" data-live-search="true" class="bg-transparent border-none text-sm text-white
+                                  placeholder-slate-400 focus:ring-0 w-full" placeholder="جستجوی مقالات..."
+              aria-label="جستجوی مقالات در موبایل" />
+          </div>
+        </div> -->
+
+        {% if user.is_authenticated %}
+        <a class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors shadow-[0_0_15px_rgba(17,82,212,0.4)]"
+          href="{% url 'accounts:profile' %}">
+          پنل کاربری
+        </a>
+        {% else %}
+        <a class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2 rounded-lg transition-colors shadow-[0_0_15px_rgba(17,82,212,0.4)]"
+          href="{% url 'accounts:login' %}">
+          عضویت
+        </a>
+        {% endif %}
+
+      </div>
+    </div>
+    </div>
+  </header>
+
+  {% block content %}
+
+  {% endblock content %}
+
+  {% block footer %}
+
+  {% endblock footer %}
+  <script src="{% static 'js/live_search.js' %}" defer></script>
+  <script>
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        const searchInput = document.querySelector('input[data-live-search]');
+        if (searchInput) searchInput.focus();
+      }
+    });
+  </script>
+  {% block js %}
+
+  {% endblock js %}
+
+
+</body>
+
+</html>

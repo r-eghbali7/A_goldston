@@ -1,0 +1,458 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load jformat %} 
+{% load jalali_filters %} 
+{% block title %} وبسایت آگاهی‌بخش طلا {% endblock title%} 
+
+{% block meta_description %}
+سایت طلا گلدستون؛ جایی‌ست برای آگاهی بخشی درباره نکات بازار طلا، چگونگی پس‌انداز طلا با پول کم و خرید آگاهانه سکه پارسیان معتبر و آنلاین برای سرمایه گذاری!
+{% endblock %}
+
+{% block content %}
+<main
+  class="flex-grow w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20"
+>
+  <!-- Hero Section -->
+  <section class="relative">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content (Right in RTL, comes first in DOM) -->
+      <div class="flex flex-col gap-6 order-2 lg:order-1">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/20 w-fit"
+        >
+          <span class="size-2 rounded-full bg-accent-gold animate-pulse"></span>
+          <h1 class="text-xs font-medium text-accent-gold"
+            >
+            گلدستون؛ مرجع آگاهی‌بخش طلا
+            </h1
+          >
+        </div>
+        <h2
+          class="text-3xl md:text-5xl lg:text-6xl font-black  text-white"
+        >
+          <span >پس‌انداز</span>
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-l from-accent-gold to-yellow-200"
+            >آگاهانه</span
+          >
+          <br />
+         <span class="inline-block pt-4"> از اینجا شروع میشه</span>
+        </h2>
+        <p class="text-slate-400 text-lg leading-relaxed max-w-xl text-justify">
+            گلدستون فقط برای فروش سکه پارسیان نیست؛ اینجا جایی که یاد میگیری، طلایی فکر کنی. 
+            چون فقط با تفکر طلایی و آگاهانه‌ست که میتونی حتی با مبالغ کم یه پس‌انداز امن و مطمئن داشته باشی.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-2">
+          <a href="{% url 'home:parsian' %}"
+            class="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-lg shadow-lg shadow-primary/25 transition-all transform hover:-translate-y-1"
+          >
+            شروع پس‌انداز
+        </a>
+          <button
+            id="openVideoBtn"
+            class="flex items-center gap-2 px-8 py-3 rounded-lg border border-card-border bg-card-dark text-white hover:bg-card-border transition-colors"
+          >
+            <span class="material-symbols-outlined !text-[20px]"
+              >play_circle</span
+            >
+            <span>تماشای ویدیو معرفی</span>
+          </button>
+        </div>
+        <div
+          class="flex items-center gap-8 mt-8 pt-8 border-t border-card-border"
+        >
+          <div>
+            <p class="text-2xl font-bold text-white ltr">+800</p>
+            <p class="text-sm text-slate-500">بازدید گلدستون</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-white ltr">+{{ post_count }}</p>
+            <p class="text-sm text-slate-500">مقاله تخصصی</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-white ltr">+50</p>
+            <p class="text-sm text-slate-500">فروش سکه پارسیان</p>
+          </div>
+        </div>
+      </div>
+      <!-- Image Content (Left in RTL) -->
+      <div
+        class="relative order-1 lg:order-2 flex justify-center lg:justify-end"
+      >
+        <div
+          class="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-card-border group"
+        >
+          <!-- Decorative glow behind image -->
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-accent-gold/20 to-primary/20 blur-xl opacity-50 group-hover:opacity-75 transition-opacity"
+          ></div>
+          <div
+            class="relative h-full w-full bg-card-dark rounded-xl overflow-hidden"
+            data-alt="Portrait of a jewelry expert holding a magnifying glass examining a diamond ring"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAjpPtZSX6bUx9FxTIjJBP5LWZz1JCK41iH1oXdUIF9ljJW75w5mocQJLeJrSpv4S-OxkY9JjeDJcV5pM-zkjxxzwxAiL9_be0hhDkWC9vfac84eMxoKlAMXLN0dcZhi8PAdWteO51OE4Rn8gZ9LjC21_xkyu5uanxe8pSTn6O3WTgVCtJ-_kefsmN-UiG78i7DAJeTtAuTr2eaz6uA4LKiKAy65VaYiZ4f-zOkMfwzbuHZzaUoCToGnt42dJsxEXFGpmEoOCi-CrXO&quot;);
+              background-size: cover;
+              background-position: center;
+            "
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#101622] via-transparent to-transparent opacity-60"
+            ></div>
+          </div>
+          <!-- Floater Card -->
+          <div
+            class="absolute bottom-6 left-6 right-6 bg-[#192233]/90 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div
+                  class="size-10 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold"
+                >
+                  <img
+                    src="{% static 'image/logo.png' %}"
+                    alt="سایت طلا گلدستون"
+                    class="h-14 w-auto object-contain"
+                  />
+                </div>
+                <div>
+                  <p class="text-white font-bold text-sm">
+                    از پس‌انداز تا هدیه
+                  </p>
+                  <p class="text-xs text-slate-400">
+                      با سکه‌های پارسیان گلدستون 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Latest Articles Section -->
+  <section>
+    <div class="flex items-center justify-between mb-8">
+      <h3
+        class="text-2xl md:text-3xl font-bold text-white flex items-center gap-2"
+      >
+        <span class="w-1.5 h-8 bg-accent-gold rounded-full block"></span>
+        آخرین مقالات
+      </h3>
+      <a
+        class="text-primary hover:text-accent-gold transition-colors text-sm font-medium flex items-center gap-1"
+        href="{% url 'blog:post_list' %}"
+      >
+        مشاهده همه
+        <span class="material-symbols-outlined !text-[18px] rotate-180"
+          >arrow_right_alt</span
+        >
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      {% for post in latest_posts %}
+      <a href="{{ post.get_absolute_url }}" class="block h-full">
+        <article
+          class="group flex flex-col bg-card-dark rounded-xl overflow-hidden border border-card-border hover:border-accent-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-gold/5"
+        >
+          <div
+            class="h-48 w-full bg-cover bg-center relative"
+            data-alt="Close up of diamond ring on a dark surface"
+          >
+            <img
+              src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'image/1.jpg' %}{% endif %}"
+              alt="{{ post.title }}"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+
+            <div
+              class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"
+            ></div>
+            <span
+              class="absolute top-3 right-3 bg-primary/90 text-white text-xs font-bold px-2 py-1 rounded"
+              >{{ post.category.name }}</span
+            >
+          </div>
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
+              <span class="material-symbols-outlined !text-[14px]"
+                >calendar_today</span
+              >
+              <span>{{ post.created|jalali_date_verbose }}</span>
+              <span class="w-1 h-1 bg-slate-600 rounded-full"></span>
+              <span>خواندن {{ post.read_time }} دقیقه</span>
+            </div>
+            <h3
+              class="text-lg font-bold text-white mb-2 leading-snug group-hover:text-accent-gold transition-colors"
+            >
+              {{ post.title|truncatewords:7 }}
+            </h3>
+            <p class="text-slate-400 text-sm line-clamp-2 mb-4">
+              {{ post.description }}
+            </p>
+            <div
+              class="mt-auto pt-4 border-t border-card-border/50 flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                {% if post.author.image %}
+                <img
+                  alt="Avatar"
+                  class="w-6 h-6 rounded-full object-cover"
+                  src="{{ post.author.image_author.url }}"
+                />
+                {% else %}
+                <img
+                  alt="Avatar"
+                  class="w-6 h-6 rounded-full object-cover"
+                  src="{% static 'image/contact.webp' %}"
+                />
+                {% endif %}
+                <span class="text-xs text-slate-300"
+                  >{{ post.author.full_name }}</span
+                >
+              </div>
+              <span
+                class="material-symbols-outlined text-slate-500 group-hover:text-white transition-colors"
+                >bookmark</span
+              >
+            </div>
+          </div>
+        </article>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- Popular & Podcast Section (Grid Layout) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Popular Articles (Left Side - Wider) -->
+    <div class="lg:col-span-7 flex flex-col gap-6">
+      <h3 class="text-2xl font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent-gold"
+          >trending_up</span
+        >
+        محبوب‌ترین‌ها
+      </h3>
+      <div class="space-y-4">
+        <!-- Popular Item 1 -->
+
+        {% for pupular in popular_posts %}
+        <a
+          class="flex items-center gap-4 bg-[#151b28] p-4 rounded-xl border border-card-border hover:bg-card-dark transition-colors group"
+          href="{% url 'blog:post_detail' pupular.slug %}"
+        >
+          <div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+            <img
+              src="{% if pupular.image %}{{ pupular.image.url }}{% else %}{% static 'image/1.jpg' %}{% endif %}"
+              alt="{{ pupular.title }}"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="text-xs text-primary font-bold mb-1"
+              >{{ pupular.category }}</span
+            >
+            <h4
+              class="text-white font-bold text-lg mb-1 group-hover:text-accent-gold transition-colors"
+            >
+              {{ pupular.title }}
+            </h4>
+            <p class="text-slate-400 text-sm line-clamp-1">
+              {{ pupular.description|truncatewords:15 }}
+            </p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Podcast Section (Right Side - Narrower) -->
+    <div class="lg:col-span-5 flex flex-col gap-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent-gold"
+            >podcasts</span
+          >
+          رادیو گلدستون
+        </h2>
+      </div>
+      <div
+        class="bg-card-dark border border-card-border rounded-xl p-4 h-full flex flex-col relative overflow-hidden"
+      >
+        <!-- Decorative Circle -->
+        <div
+          class="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"
+        ></div>
+
+
+        <div id="radio-player" class="relative z-10 mb-4 hidden">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-3">
+            <div class="flex items-center gap-3 mb-2">
+              <img
+                id="player-cover"
+                src=""
+                alt="cover"
+                class="w-12 h-12 rounded-lg object-cover shrink-0"
+              />
+              <div class="flex-1 min-w-0">
+                <h5
+                  id="player-title"
+                  class="text-white font-bold text-sm truncate"
+                ></h5>
+                <p
+                  id="player-category"
+                  class="text-xs text-slate-500 mt-0.5"
+                ></p>
+              </div>
+              <button
+                onclick="togglePlayPause()"
+                class="text-accent-gold hover:text-white transition-colors"
+              >
+                <span
+                  id="player-icon"
+                  class="material-symbols-outlined !text-[32px]"
+                  >play_circle</span
+                >
+              </button>
+            </div>
+            <!-- Progress Bar -->
+            <div class="flex items-center gap-2">
+              <span
+                id="player-current"
+                class="text-[10px] text-slate-500 w-8 text-center font-mono"
+                >0:00</span
+              >
+              <div
+                class="flex-1 relative h-1.5 bg-white/10 rounded-full cursor-pointer group"
+                id="progress-bar"
+                onclick="seekAudio(event)"
+              >
+                <div
+                  id="progress-fill"
+                  class="absolute top-0 left-0 h-full bg-accent-gold rounded-full transition-all"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <span
+                id="player-duration"
+                class="text-[10px] text-slate-500 w-8 text-center font-mono"
+                >0:00</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- لیست پادکست‌ها -->
+        <div
+          class="podcast-list flex flex-col gap-2.5 overflow-y-auto max-h-[380px] pr-2"
+        >
+        {% for post in podcast_posts %}
+        <!-- Podcast Item -->
+        <div
+          class="podcast-item flex gap-4 p-3 me-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group"
+          data-voice-url="{{ post.voice.url }}"
+          data-title="{{ post.title }}"
+          data-category="{{ post.category.name }}"
+          data-cover="{% if post.image %}{{ post.image.url }}{% endif %}"
+          data-read-time="{{ post.read_time }}"
+          onclick="loadAndPlay(this)"
+        >
+          <div
+            class="relative w-16 h-16 rounded-lg bg-cover bg-center shrink-0 overflow-hidden bg-gray-800"
+            {% if post.image %}
+              style="background-image: url('{{ post.image.url }}');"
+            {% endif %}
+          >
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-white">play_arrow</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center flex-1 min-w-0">
+            <h5 class="text-white font-bold text-sm">{{ post.title|truncatewords:7 }}</h5>
+            <div class="flex items-center gap-3 mt-1 text-xs text-slate-500">
+              <span>{{ post.category.name }}</span>
+            </div>
+
+            <!-- پلیر داخلی — فقط وقتی این آیتم فعاله نمایش داده می‌شه -->
+            <div
+              class="podcast-progress items-center gap-2 mt-2"
+              onclick="event.stopPropagation()"
+            >
+              
+              <div
+                class="podcast-bar flex-1 relative h-1.5 bg-white/10 rounded-full cursor-pointer group"
+              >
+                <div
+                  class="podcast-fill absolute top-0 left-0 h-full bg-accent-gold rounded-full transition-all"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="flex items-center justify-between w-full mt-3">
+                <span class="podcast-duration text-[10px] text-slate-500 w-8 text-center font-mono">0:00</span>
+                <span class="podcast-current text-[10px] text-slate-500 w-8 text-center font-mono">0:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <button class="podcast-play-btn text-slate-400 hover:text-accent-gold transition-colors">
+              <span class="material-symbols-outlined">play_circle</span>
+            </button>
+          </div>
+        </div>
+        {% empty %}
+        <div class="flex flex-col items-center justify-center py-10 text-slate-500">
+          <span class="material-symbols-outlined !text-[48px] mb-2">mic_off</span>
+          <p class="text-sm">هنوز پادکستی منتشر نشده است</p>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Audio Element مخفی -->
+    <audio id="radio-audio" preload="metadata"></audio>
+  </div>
+
+  <!-- Currency Ticker Section -->
+  {% include 'includes/chart_gold_price.html' %}
+</main>
+
+<!-- Video Modal -->
+<div
+  id="videoModal"
+  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-sm"
+>
+  <div
+    class="relative w-[90%] max-w-3xl bg-card-dark rounded-xl overflow-hidden shadow-2xl"
+  >
+    <!-- Close Button -->
+    <button
+      id="closeVideoBtn"
+      class="absolute top-3 left-3 z-20 text-accent-gold"
+    >
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <!-- Video -->
+    <video id="introVideo" class="w-full h-auto relative z-10" controls>
+      <source src="{% static 'video/goldestone.mp4' %}" type="video/mp4" />
+      مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+    </video>
+  </div>
+</div>
+
+{% endblock content %} 
+
+{% block footer %} 
+  {% include 'footer.html' %} 
+{% endblock footer %}
+
+{% block js %}
+<script src="{% static 'js/video_modal.js' %}"></script>
+<script src="{% static 'js/podcast.js' %}"></script>
+{% endblock js %} 
+

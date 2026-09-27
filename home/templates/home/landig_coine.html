@@ -1,0 +1,611 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block title %}
+خرید سکه پارسیان
+{% endblock title %}
+
+{% block js %}
+<script src="{% static 'js/video_modal.js' %}"></script>
+<script src="{% static 'js/image_modal.js' %}"></script>
+{% endblock js %} 
+
+
+<title>گلدستون | خرید و معرفی سکه پارسیان</title>
+{% block content %}
+
+<main>
+  <section class="relative pt-32 pb-20 overflow-hidden">
+    <div
+      class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none"
+    >
+      <div
+        class="absolute top-1/4 -left-20 w-96 h-96 bg-accent-gold rounded-full blur-[120px]"
+      ></div>
+    </div>
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1 flex justify-center">
+        <div class="relative group">
+          <div
+            class="absolute -inset-1 bg-accent-gold/30 rounded-full blur-2xl group-hover:bg-accent-gold/50 transition duration-1000"
+          ></div>
+          <img
+            alt="Parsian Gold Coin"
+            class="relative w-80 h-80 md:w-[450px] md:h-[450px] object-contain rounded-full border-4 border-accent-gold/20 shadow-accent-gold/20 shadow-2xl"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRa4FsUCarSkRTizoPXJjV1kHcsa0qVRcihuQ_PfRouCoyI3dgiYvx57PY-qZC1MxvSREl5rsesxP2YgZMDDnJJ5kVmxrLQoCNTodKwHeg_Kw47cAqT6N740og9wrnFDGxgA-vGV7y81fJjNEja_prsWjyM__iTLAj-EpP9tMg8clZuV4PicM8aohydD2ib4XH8meHN-HDigMBQPxHIC7OiJi_Kb3g8vGZQ6Cv4aMLNTmlTzxibAdtQ9dY9yYSGDEcD6DK1GlAJA6a"
+          />
+        </div>
+      </div>
+      <div class="text-right flex flex-col gap-6 order-2 lg:order-1">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-gold/10 border border-accent-gold/20 w-fit">
+
+                  <span
+          class=" text-xs font-medium text-accent-gold"
+        >
+          کلکسیون جدید ۱۴۰۳
+        </span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+          سکه پارسیان؛ <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-l from-accent-gold to-yellow-200">هدیه‌ای ماندگار</span> و سرمایه‌ای هوشمند
+        </h1>
+        <p class="text-lg text-slate-400 mb-10 max-w-xl leading-relaxed">
+          گلدستون با ارائه معتبرترین سکه‌های پارسیان با هولوگرام امنیتی و عیار
+          تضمین شده، همراه شما در مسیر حفظ ارزش سرمایه و انتخاب بهترین هدیه برای
+          عزیزانتان است.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-start">
+          <button
+            class="bg-accent-gold text-background-dark px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_20px_rgba(242,185,13,0.4)] transition-all"
+          >
+            خرید آنلاین سکه
+          </button>
+          <button id="openVideoBtn"
+            class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-xl font-bold transition-all group"
+          >
+        <span class="material-symbols-outlined text-accent-gold group-hover:scale-110 transition-transform">
+          play_circle
+        </span>
+            ویدیو معرفی
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-accent-dark/30" id="benefits">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">چرا گلدستون را انتخاب کنید؟</h2>
+        <div class="w-20 h-1 bg-accent-gold mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="glass-card p-8 rounded-2xl text-center group hover:border-accent-gold/50 transition-all"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-3xl">verified</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">ضمانت اصالت ۱۰۰٪</h3>
+          <p class="text-slate-400 leading-relaxed">
+            تمامی سکه‌ها دارای هولوگرام امنیتی اتحادیه و فاکتور رسمی معتبر
+            گلدستون می‌باشند.
+          </p>
+        </div>
+        <div
+          class="glass-card p-8 rounded-2xl text-center group hover:border-accent-gold/50 transition-all"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-3xl"
+              >local_shipping</span
+            >
+          </div>
+          <h3 class="text-xl font-bold mb-4">ارسال فوق امن</h3>
+          <p class="text-slate-400 leading-relaxed">
+            بسته‌بندی‌های اختصاصی ضد دستکاری و ارسال توسط پیک معتمد در کمترین
+            زمان ممکن.
+          </p>
+        </div>
+        <div
+          class="glass-card p-8 rounded-2xl text-center group hover:border-accent-gold/50 transition-all"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-3xl">payments</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">قیمت لحظه‌ای رقابتی</h3>
+          <p class="text-slate-400 leading-relaxed">
+            محاسبه قیمت بر اساس نرخ لحظه‌ای بازار طلا بدون واسطه و با کمترین
+            کارمزد ممکن.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 relative overflow-hidden" id="info">
+    <div class="container mx-auto px-6">
+      <div
+        class="glass-card rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative"
+      >
+        <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
+          <img
+            alt="Pattern"
+            class="w-full h-full object-cover"
+            src="{% static 'image/back.webp' %}" 
+          />
+        </div>
+        <div class="w-full md:w-1/2 space-y-8 relative z-10">
+          <h2 class="text-3xl font-bold border-r-4 border-accent-gold pr-4">
+            آناتومی سکه پارسیان گلدستون
+          </h2>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <span
+                class="w-8 h-8 rounded-full bg-accent-gold text-background-dark flex items-center justify-center font-bold shrink-0"
+                >۱</span
+              >
+              <div>
+                <h4 class="font-bold text-lg text-accent-gold">
+                  عیار استاندارد ۷۵۰
+                </h4>
+                <p class="text-slate-400">
+                  تضمین شده مطابق با استانداردهای ملی طلا و جواهر ایران.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span
+                class="w-8 h-8 rounded-full bg-accent-gold text-background-dark flex items-center justify-center font-bold shrink-0"
+                >۲</span
+              >
+              <div>
+                <h4 class="font-bold text-lg text-accent-gold">وزن‌های متنوع</h4>
+                <p class="text-slate-400">
+                  ارائه در وزن‌های ۵۰ سوت تا ۲ گرم برای بودجه‌های مختلف.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span
+                class="w-8 h-8 rounded-full bg-accent-gold text-background-dark flex items-center justify-center font-bold shrink-0"
+                >۳</span
+              >
+              <div>
+                <h4 class="font-bold text-lg text-accent-gold">هولوگرام لیزری</h4>
+                <p class="text-slate-400">
+                  نشان غیرقابل جعل برای تشخیص اصالت در هر زمان و مکان.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-center relative z-10">
+          <div class="relative">
+            <img
+            alt="Parsian Details"
+            class="rounded-2xl border-2 border-accent-gold/30 shadow-2xl max-w-xs md:max-w-md"
+            src="{% static 'image/front.webp' %}" 
+            />
+            <div
+              class="absolute -bottom-6 -right-6 bg-accent-gold p-6 rounded-2xl shadow-xl text-background-dark font-black text-center"
+            >
+              <div class="text-sm">خلوص طلا</div>
+              <div class="text-2xl">۱۸ عیار</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-background-dark">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4"> گلدستون همراه مشتری</h2>
+      <p class="text-slate-400 mb-16">لحظات شیرین دریافت اعتماد شما</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          class="relative w-full aspect-[9/16] overflow-hidden rounded-2xl border-2 border-accent-gold/20 group cursor-pointer"
+        >
+          <img
+        alt="Customer Satisfaction" 
+    class="gallery-image w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            src="{% static 'image/4.jpg' %}"
+          />
+        </div>
+        <div
+          class="relative w-full aspect-[9/16] overflow-hidden rounded-2xl border-2 border-accent-gold/20 group cursor-pointer"
+        >
+          <img
+            alt="Customer Satisfaction"
+            class="gallery-image w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            src="{% static 'image/2.jpg' %}"
+          />
+        </div>
+        <div
+          class="relative w-full aspect-[9/16] overflow-hidden rounded-2xl border-2 border-accent-gold/20 group cursor-pointer"
+        >
+          <img
+            alt="Customer Satisfaction"
+            class="gallery-image w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            src="{% static 'image/3.jpg' %}"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-accent-dark/20 relative" id="order-form">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-1 md:order-1">
+          <div
+            class="glass-card rounded-3xl p-8 md:p-12 border border-accent-gold/30 shadow-[0_0_50px_rgba(242,185,13,0.1)]"
+          >
+            <div class="text-right mb-10">
+              <h2 class="text-3xl font-bold mb-4">ثبت درخواست مشاوره و خرید</h2>
+              <p class="text-slate-400">
+                کارشناسان ما در سریع‌ترین زمان برای هماهنگی با شما تماس
+                می‌گیرند.
+              </p>
+            </div>
+            <form class="space-y-6" method="post">
+              {% csrf_token %}
+              <div class="space-y-4">
+                <div class="space-y-2">
+                  <label class="block text-sm font-medium text-slate-300 pr-2"
+                    >نام و نام خانوادگی</label
+                  >
+                  <input
+                    class="w-full bg-background-dark/50 border border-slate-700 rounded-xl px-4 py-4 focus:border-accent-gold focus:ring-1 focus:ring-accent-gold outline-none transition-all text-white"
+                    placeholder="مثلا: علی محمدی"
+                    type="text"
+                    name="full_name"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label class="block text-sm font-medium text-slate-300 pr-2"
+                    >شماره تماس</label
+                  >
+                  <input
+                    class="w-full bg-background-dark/50 border border-slate-700 rounded-xl px-4 py-4 focus:border-accent-gold focus:ring-1 focus:ring-accent-gold outline-none transition-all text-left text-white"
+                    dir="ltr"
+                    placeholder="۰۹۱۲۰۰۰۰۰۰۰"
+                    type="tel"
+                    name="phone_number"
+                  />
+                </div>
+              </div>
+              <button
+                class="w-full bg-accent-gold text-background-dark font-black py-5 rounded-xl text-lg hover:shadow-[0_0_30px_rgba(242,185,13,0.3)] transition-all flex items-center justify-center gap-3"
+              >
+                <span class="material-symbols-outlined">send</span>
+                ثبت و ارسال درخواست
+              </button>
+              <p class="text-center text-xs text-slate-500">
+                با کلیک بر روی دکمه، با قوانین و مقررات گلدستون موافقت می‌کنید.
+              </p>
+            </form>
+          </div>
+        </div>
+        <div class="order-2 md:order-2">
+          <div class="relative rounded-3xl overflow-hidden group">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent opacity-60 z-10"
+            ></div>
+            <img
+              alt="Jewelry Shopping Experience"
+              class="w-full h-[500px] object-cover rounded-3xl border-2 border-accent-gold/20 group-hover:scale-105 transition-transform duration-700"
+              src="{% static 'image/costomwe_support.webp' %}"
+            />
+            <div class="absolute bottom-8 right-8 z-20 text-right">
+              <div
+                class="bg-accent-gold/90 text-background-dark px-4 py-2 rounded-lg font-bold text-sm inline-block mb-3"
+              >
+                تجربه خرید مطمئن
+              </div>
+              <p class="text-white font-bold text-xl drop-shadow-lg">
+                اصالت، زیبایی و امنیت در یکجا
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 relative overflow-hidden" id="process">
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"
+    ></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl font-bold mb-4">مراحل ساده خرید از گلدستون</h2>
+        <div class="w-20 h-1 bg-accent-gold mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div
+          class="glass-mosaic p-8 rounded-2xl group hover:border-accent-gold/60 transition-all duration-500 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-4xl">edit_note</span>
+          </div>
+          <div
+            class="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-gold text-background-dark font-bold text-sm"
+          >
+            ۱
+          </div>
+          <h4 class="text-lg font-bold mb-3 text-accent-gold">ورود اطلاعات</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            تکمیل فرم درخواست مشاوره و ثبت اطلاعات تماس
+          </p>
+        </div>
+        <div
+          class="glass-mosaic p-8 rounded-2xl group hover:border-accent-gold/60 transition-all duration-500 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-4xl"
+              >phone_in_talk</span
+            >
+          </div>
+          <div
+            class="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-gold text-background-dark font-bold text-sm"
+          >
+            ۲
+          </div>
+          <h4 class="text-lg font-bold mb-3 text-accent-gold">تماس گلدستون</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            مشاوره تخصصی و تایید قیمت بر اساس نرخ لحظه‌ای
+          </p>
+        </div>
+        <div
+          class="glass-mosaic p-8 rounded-2xl group hover:border-accent-gold/60 transition-all duration-500 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-4xl"
+              >shopping_cart</span
+            >
+          </div>
+          <div
+            class="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-gold text-background-dark font-bold text-sm"
+          >
+            ۳
+          </div>
+          <h4 class="text-lg font-bold mb-3 text-accent-gold">ثبت سفارش</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            تایید نهایی اقلام و وزن‌های انتخابی کاربر
+          </p>
+        </div>
+        <div
+          class="glass-mosaic p-8 rounded-2xl group hover:border-accent-gold/60 transition-all duration-500 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-4xl"
+              >receipt_long</span
+            >
+          </div>
+          <div
+            class="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-gold text-background-dark font-bold text-sm"
+          >
+            ۴
+          </div>
+          <h4 class="text-lg font-bold mb-3 text-accent-gold">پرداخت امن</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            تسویه حساب نهایی از طریق درگاه‌های امن بانکی
+          </p>
+        </div>
+        <div
+          class="glass-mosaic p-8 rounded-2xl group hover:border-accent-gold/60 transition-all duration-500 flex flex-col items-center text-center"
+        >
+          <div
+            class="w-16 h-16 bg-accent-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+          >
+            <span class="material-symbols-outlined text-accent-gold text-4xl"
+              >local_shipping</span
+            >
+          </div>
+          <div
+            class="mb-4 inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent-gold text-background-dark font-bold text-sm"
+          >
+            ۵
+          </div>
+          <h4 class="text-lg font-bold mb-3 text-accent-gold">ارسال و تحویل</h4>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            ارسال با بسته‌بندی امنیتی و تحویل درب منزل
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-background-dark relative overflow-hidden" id="faq">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">سوالات متداول</h2>
+        <div class="w-20 h-1 bg-accent-gold mx-auto rounded-full"></div>
+      </div>
+      <div class="space-y-4">
+        <div
+          class="faq-item glass-card rounded-2xl overflow-hidden border border-accent-gold/10 transition-all hover:border-accent-gold/30"
+        >
+          <input class="hidden" id="faq-1" name="faq-accordion" type="radio" />
+          <label
+            class="flex justify-between items-center p-6 cursor-pointer select-none"
+            for="faq-1"
+          >
+            <span class="text-accent-gold font-bold text-lg"
+              >آیا سکه‌های پارسیان گلدستون دارای ضمانت هستند؟</span
+            >
+            <span
+              class="material-symbols-outlined text-accent-gold arrow transition-transform duration-300"
+              >expand_more</span
+            >
+          </label>
+          <div class="faq-content px-6">
+            <p class="text-white leading-relaxed">
+              بله، تمامی سکه‌های پارسیان ارائه شده در گلدستون دارای هولوگرام
+              امنیتی و فاکتور رسمی معتبر هستند که اصالت و عیار ۷۵۰ (۱۸ عیار)
+              آن‌ها را تضمین می‌کند.
+            </p>
+          </div>
+        </div>
+        <div
+          class="faq-item glass-card rounded-2xl overflow-hidden border border-accent-gold/10 transition-all hover:border-accent-gold/30"
+        >
+          <input class="hidden" id="faq-2" name="faq-accordion" type="radio" />
+          <label
+            class="flex justify-between items-center p-6 cursor-pointer select-none"
+            for="faq-2"
+          >
+            <span class="text-accent-gold font-bold text-lg"
+              >تفاوت سکه پارسیان با سکه‌های بانکی چیست؟</span
+            >
+            <span
+              class="material-symbols-outlined text-accent-gold arrow transition-transform duration-300"
+              >expand_more</span
+            >
+          </label>
+          <div class="faq-content px-6">
+            <p class="text-white leading-relaxed">
+              سکه‌های پارسیان بر خلاف سکه‌های بانکی (تمام، نیم و ربع)، وزن ثابتی
+              ندارند و در وزن‌های مختلف از ۵۰ سوت تا ۲ گرم تولید می‌شوند. همچنین
+              سکه‌های پارسیان حق ضرب بانکی ندارند و قیمت آن‌ها بر اساس وزن دقیق
+              طلا محاسبه می‌شود که آن‌ها را برای هدیه و سرمایه‌گذاری‌های کوچک
+              بسیار مناسب می‌کند.
+            </p>
+          </div>
+        </div>
+        <div
+          class="faq-item glass-card rounded-2xl overflow-hidden border border-accent-gold/10 transition-all hover:border-accent-gold/30"
+        >
+          <input class="hidden" id="faq-3" name="faq-accordion" type="radio" />
+          <label
+            class="flex justify-between items-center p-6 cursor-pointer select-none"
+            for="faq-3"
+          >
+            <span class="text-accent-gold font-bold text-lg"
+              >نحوه محاسبه قیمت سکه پارسیان چگونه است؟</span
+            >
+            <span
+              class="material-symbols-outlined text-accent-gold arrow transition-transform duration-300"
+              >expand_more</span
+            >
+          </label>
+          <div class="faq-content px-6">
+            <p class="text-white leading-relaxed">
+              قیمت نهایی از حاصل‌ضرب وزن سکه در قیمت لحظه‌ای طلای ۱۸ عیار به
+              علاوه کارمزد ساخت و سود قانونی طلافروش محاسبه می‌شود. در گلدستون
+              کارمزد به حداقل رسیده تا بهترین قیمت برای شما لحاظ گردد.
+            </p>
+          </div>
+        </div>
+        <div
+          class="faq-item glass-card rounded-2xl overflow-hidden border border-accent-gold/10 transition-all hover:border-accent-gold/30"
+        >
+          <input class="hidden" id="faq-4" name="faq-accordion" type="radio" />
+          <label
+            class="flex justify-between items-center p-6 cursor-pointer select-none"
+            for="faq-4"
+          >
+            <span class="text-accent-gold font-bold text-lg"
+              >ارسال سفارشات به چه صورت انجام می‌شود؟</span
+            >
+            <span
+              class="material-symbols-outlined text-accent-gold arrow transition-transform duration-300"
+              >expand_more</span
+            >
+          </label>
+          <div class="faq-content px-6">
+            <p class="text-white leading-relaxed">
+              سفارشات تهران از طریق پیک معتمد و در کمترین زمان ممکن ارسال
+              می‌گردد. برای شهرستان‌ها نیز از طریق پست بیمه شده و بسته‌بندی‌های
+              امنیتی ضد دستکاری ارسال انجام می‌شود تا خیالتان از بابت سلامت کالا
+              راحت باشد.
+            </p>
+          </div>
+        </div>
+        <div
+          class="faq-item glass-card rounded-2xl overflow-hidden border border-accent-gold/10 transition-all hover:border-accent-gold/30"
+        >
+          <input class="hidden" id="faq-5" name="faq-accordion" type="radio" />
+          <label
+            class="flex justify-between items-center p-6 cursor-pointer select-none"
+            for="faq-5"
+          >
+            <span class="text-accent-gold font-bold text-lg"
+              >آیا امکان بازگشت کالا وجود دارد؟</span
+            >
+            <span
+              class="material-symbols-outlined text-accent-gold arrow transition-transform duration-300"
+              >expand_more</span
+            >
+          </label>
+          <div class="faq-content px-6">
+            <p class="text-white leading-relaxed">
+              با توجه به نوسانات لحظه‌ای قیمت طلا، لغو سفارش تنها تا پیش از
+              واریز وجه مقدور است. اما در صورت وجود هرگونه مغایرت فیزیکی یا نقص
+              در بسته‌بندی، گلدستون متعهد به تعویض کالا و رضایت کامل شما
+              می‌باشد.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+  <!-- Video Modal -->
+  <div id="videoModal" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div class="relative w-[90%] max-w-3xl bg-card-dark rounded-xl overflow-hidden shadow-2xl">
+
+      <!-- Close Button -->
+      <button id="closeVideoBtn"
+       class="absolute top-3 left-3 z-20  text-accent-gold">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <!-- Video -->
+      <video id="introVideo" class="w-full h-auto relative z-10" controls>
+        <source src="{% static 'video/goldestone.mp4' %}" type="video/mp4">
+        مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+      </video>
+
+    </div>
+  </div>
+
+
+  <!-- Image Modal -->
+  <div
+    id="imageModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[9999]"
+  >
+    <div class="relative max-w-3xl w-full px-4">
+      <!-- Close -->
+      <button id="closeImageModal"
+       class="absolute top-3 left-3 z-20  text-accent-gold">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <!-- Image -->
+      <img
+        id="modalImage"
+        src=""
+        class="w-full max-h-[90vh] object-contain rounded-xl"
+        alt="Preview"
+      />
+    </div>
+  </div>
+
+
+
+{% include 'footer.html' %} 
+
+{% endblock content %}

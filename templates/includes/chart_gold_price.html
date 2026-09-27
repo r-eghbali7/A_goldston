@@ -1,0 +1,92 @@
+{% load humanize %}
+{% load persian_filters %}
+<section class="pb-12">
+    <div class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="flex h-8 w-1 bg-accent-gold rounded-full"></span>
+            <h3 class="text-white text-1xl md:text-2xl font-bold">
+                قیمت لحظه‌ای طلا و سکه
+            </h3>
+            <span class="text-[#92a4c9] text-xs mt-1 mr-2">
+                    (بروزرسانی: 5 دقیقه پیش)
+            </span>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+
+       
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-8 h-8 bg-accent-gold/10 rounded-bl-xl"></div>
+                <span class="text-slate-400 text-xs font-bold">انس جهانی طلا</span>
+                <span class="text-white text-lg font-bold font-mono dir-ltr">
+                    ${{ gold_price_irr|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex ltr items-center {{ gold_changes.gold_price_irr.color }} text-xs font-bold gap-1 {{ gold_changes.gold_price_irr.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.gold_price_irr.icon }}</span>
+                    {{ gold_changes.gold_price_irr.percent }}٪
+                </div>
+            </div>
+
+        
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <span class="text-slate-400 text-xs font-bold">طلای ۱۸ عیار (گرم)</span>
+                <span class="text-white text-lg font-bold font-mono">
+                    {{ gold_18k_price|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex ltr items-center {{ gold_changes.gold_18k_price.color }} text-xs font-bold gap-1 {{ gold_changes.gold_18k_price.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.gold_18k_price.icon }}</span>
+                    {{ gold_changes.gold_18k_price.percent }}٪
+                </div>
+            </div>
+
+            <!-- سکه تمام بهار آزادی -->
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <span class="text-slate-400 text-xs font-bold">سکه تمام بهار آزادی</span>
+                <span class="text-white text-lg font-bold font-mono">
+                    {{ sikka_tamam|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex items-center {{ gold_changes.sikka_tamam.color }} text-xs font-bold gap-1 {{ gold_changes.sikka_tamam.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.sikka_tamam.icon }}</span>
+                    {{ gold_changes.sikka_tamam.percent }}٪
+                </div>
+            </div>
+
+        
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <span class="text-slate-400 text-xs font-bold">سکه امامی</span>
+                <span class="text-white text-lg font-bold font-mono">
+                    {{ sikka_imami|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex ltr items-center {{ gold_changes.sikka_imami.color }} text-xs font-bold gap-1 {{ gold_changes.sikka_imami.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.sikka_imami.icon }}</span>
+                    {{ gold_changes.sikka_imami.percent }}٪
+                </div>
+            </div>
+
+     
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <span class="text-slate-400 text-xs font-bold">نیم سکه</span>
+                <span class="text-white text-lg font-bold font-mono">
+                    {{ sikka_nim|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex ltr items-center {{ gold_changes.sikka_nim.color }} text-xs font-bold gap-1 {{ gold_changes.sikka_nim.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.sikka_nim.icon }}</span>
+                    {{ gold_changes.sikka_nim.percent }}٪
+                </div>
+            </div>
+
+         
+            <div class="bg-card-dark border border-card-border p-4 rounded-xl flex flex-col items-center justify-center text-center gap-2 relative overflow-hidden">
+                <span class="text-slate-400 text-xs font-bold">ربع سکه</span>
+                <span class="text-white text-lg font-bold font-mono">
+                    {{ sikka_rub|default:"۰"|persian_price_toman }}
+                </span>
+                <div class="flex ltr items-center {{ gold_changes.sikka_rub.color }} text-xs font-bold gap-1 {{ gold_changes.sikka_rub.bg_color }} px-2 py-0.5 rounded-full">
+                    <span class="material-symbols-outlined !text-[14px]">{{ gold_changes.sikka_rub.icon }}</span>
+                    {{ gold_changes.sikka_rub.percent }}٪
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

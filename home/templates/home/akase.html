@@ -1,0 +1,236 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block title %}
+  خدمات عکاسی
+{% endblock title %}
+  
+
+{% block content %}
+<main class="flex-grow">
+  <!-- Hero Section -->
+  <section
+    class="relative w-full h-[600px] flex items-center justify-center overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <div
+        class="w-full h-full bg-cover bg-center"
+        data-alt="close up of luxury diamond ring with cinematic lighting"
+        style="
+          background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDLpY0lj4ySug2GhqtzM05S4oF47-pc5Tq38zAtr6wLOkYjPw7B4GlC1GusybTGvc8gpuST9dydpFCAV8AF3Jc-Ri9Dkdg7ygKwD28Xza4t2WN8XUMDNGElcaf7h4SDOHKVy5u5fCWe0XoWoOpe7nv3C9sQW9pT6pbucphbjhAhEqd-jiQ7MkK4Cc1gXuKPzEAhOXAGsa-Ap9ltA7LHuIwajd1vzAEAy3PpYIcGkBehF30JCiQXx2PNgOARqgZu0cNUTIO1tPAmClNF&quot;);
+        "
+      ></div>
+    </div>
+    <div class="relative z-20 text-center px-4 max-w-4xl">
+      <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+        هنر درخشش؛ <span class="gold-gradient-text">عکاسی تبلیغاتی</span> و
+        طراحی جواهرات
+      </h2>
+      <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+        ما با ترکیب تکنولوژی روز و هنر عکاسی ماکرو، روح قطعات قیمتی شما را در
+        قاب تصویر به نمایش می‌گذاریم.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          class="bg-accent-gold text-background-dark font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform flex items-center gap-2"
+          href="#portfolio"
+        >
+          <span class="material-symbols-outlined">collections</span>
+          مشاهده گالری آثار
+        </a>
+        <a
+          class="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-xl hover:bg-white/20 transition-all"
+          href="#services"
+        >
+          خدمات ما
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Services Section -->
+  <section class="py-20 px-4 lg:px-40 max-w-[1200px] mx-auto" id="services">
+    <div class="flex items-center gap-4 mb-12">
+      <span class="w-12 h-[2px] bg-accent-gold"></span>
+      <h3 class="text-3xl font-bold">خدمات تخصصی برند</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Service 1 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined  text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >lightbulb</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">مشاوره تخصصی خرید</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          راهنمایی در انتخاب بهترین سنگ‌های قیمتی و فلزات گرانبها با توجه به
+          بودجه و استانداردهای جهانی GIA.
+        </p>
+      </div>
+      <!-- Service 2 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >edit_note</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">طراحی اختصاصی</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          تبدیل ایده‌های ذهنی شما به طرح‌های سه‌بعدی و اجرای دقیق آن توسط اساتید
+          متبحر طلا‌سازی.
+        </p>
+      </div>
+      <!-- Service 3 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >photo_camera</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">عکاسی تبلیغاتی</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          عکاسی ماکرو با جزئیات خیره‌کننده از نگین‌ها و بافت فلزات جهت استفاده
+          در کاتالوگ و وب‌سایت.
+        </p>
+      </div>
+      <!-- Service 4 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >videocam</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">تولید ویدیو سینمایی</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          ساخت تیزرهای ویدیویی کوتاه و لوکس برای معرفی کلکسیون‌های فصلی در
+          شبکه‌های اجتماعی.
+        </p>
+      </div>
+      <!-- Service 5 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >verified</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">شناسنامه و اصالت</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          صدور تاییدیه و شناسنامه معتبر برای سنگ‌های قیمتی با استفاده از
+          ابزارهای دقیق گوهرشناسی.
+        </p>
+      </div>
+      <!-- Service 6 -->
+      <div
+        class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-gold/50 transition-all group"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-accent-gold mb-4 group-hover:scale-110 transition-transform block"
+          >auto_fix_high</span
+        >
+        <h4 class="text-xl font-bold mb-3 text-white">بازسازی و پولیش</h4>
+        <p class="text-gray-400 text-sm leading-7">
+          احیای درخشش جواهرات قدیمی و انجام خدمات آبکاری و مخراج‌کاری مجدد با
+          ظرافت بالا.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Portfolio Section -->
+  <section class="bg-white/5 py-20 px-4 lg:px-40" id="portfolio">
+    <div class="max-w-[1200px] mx-auto">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+      >
+        <div>
+          <div class="flex items-center gap-4 mb-4">
+            <span class="w-12 h-[2px] bg-accent-gold"></span>
+            <h3 class="text-3xl font-bold">پورتفولیو و آثار</h3>
+          </div>
+          <p class="text-gray-400">
+            گزیده‌ای از پروژه‌های عکاسی و فیلمبرداری از برندهای مطرح
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm">
+            همه
+          </button>
+          <button
+            class="bg-white/10 text-gray-300 hover:bg-white/20 px-4 py-2 rounded-lg text-sm"
+          >
+            عکس
+          </button>
+          <button
+            class="bg-white/10 text-gray-300 hover:bg-white/20 px-4 py-2 rounded-lg text-sm"
+          >
+            ویدیو
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          class="relative group overflow-hidden rounded-xl aspect-[3/4] col-span-2 row-span-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+          >
+            <p class="text-accent-gold font-bold">کالکشن زمستانه</p>
+            <h5 class="text-xl">گردنبند مروارید و الماس</h5>
+          </div>
+          <div
+            class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            data-alt="luxury pearl and diamond necklace photography"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDkLnCU0zCckb_R_8_vgUqi01fwjuJuHLNN1-3AuT3CxcYWo29zFRhuPBmvFvzQj8He02XiMKn3W7CHcm8OdCtr7r--po0mzyLIlUGaJOw7HlOEXSCy7Smx45sMVlnN8PzLoeGKwq607ths_r5T2pFBKnep_A358zh6bdtCNd6_UQR4MVvDLIkxw7-e59vbRGTPgSW-_WcrtYKJGtcGietD8X_y0aAYChBleqixgQY4ZqhL3frg4NGOrQkVFfKKP4oSIIFV9OHs-uNv&quot;);
+            "
+          ></div>
+        </div>
+        <div class="relative group overflow-hidden rounded-xl aspect-square">
+          <div
+            class="absolute inset-0 bg-black/40 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          >
+            <span class="material-symbols-outlined text-white text-5xl"
+              >play_circle</span
+            >
+          </div>
+          <div
+            class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            data-alt="close up video still of gold watch"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAGYCViHjQzBM9OoyBcTYjL3rP79uYtJLpHoGy90wgrcBAfICSbP8ZqVw6Z0v00e7ay84-0ZiLl-URo12S_igCijV1OQY9xoVtdoLnghAwO5rqGUiTfO5MqP3W8kRnmt9wHXNCSLzhTIWT5P4Bmmm4gwFUL_0Z0ot6JJo-khFjgFDbbu1FeK7IlOg2Lj_YAXW0yG_C3ooGy0Up9lkPjROOdtEM_ecbhBwhaAW3gdvWrgjipy1yohAo5fvi1QkKrAlgy6Ovj7GAARZUo&quot;);
+            "
+          ></div>
+        </div>
+        <div class="relative group overflow-hidden rounded-xl aspect-square">
+          <div
+            class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            data-alt="luxury engagement ring macro photo"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAwdmmPpfiPE8OBbkJqU2f2HSJg59EOfpmwkrOQWTAUBMdUZiwb8Bj9wQe4Iivw62RKiH8JtW2QL81e85pKgvkhHsArfPSdpw78yKAdfEFxXQnrALpUvkNYgj8Zaf87-mohTFy3iAp-01f_Fya4htwgZfTrlxZFCqolJefoD55qkKOW4IFnsO5hNWFh_eM7lxOGjp52CRNFGBPidgYmHF0E9yxLpkcTLwzGAAZDau9ni9zmbhUA4Qa1_Yu1nfgkP2dPBOUZ_fbNsfmZ&quot;);
+            "
+          ></div>
+        </div>
+        <div
+          class="relative group overflow-hidden rounded-xl aspect-[3/4] col-span-2"
+        >
+          <div
+            class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            data-alt="fashion jewelry model photography"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC3j1EQnYwiC9J47vr8Pqqj8XE-FDnfrHeIotEq5ptovDRR__UVzLte8DjzOZyoHJOcYLk6It3qxCNuWzmbh4RXNte19h2kpFalt12ytQcaUoAU_r2GZFBXmk0SpMQPl6Rp4YYHEfWNYoU2Ws8bSf4ZajdEaGpKqq7WwZGILogHI5OaD-2uG40b3zJp6kRDFQGMnCZ3phjRm2GiKlEfaCpu5BewDjwxVjXzHoXAvIRG-JG8vyCzP9srHsko8J1SdaOXfuCHQN9JstIm&quot;);
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- Footer -->
+{% include 'footer.html' %} 
+{% endblock content %}

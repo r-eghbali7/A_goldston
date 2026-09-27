@@ -1,0 +1,278 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+
+{% block title %}
+  محاسبه گر طلا
+{% endblock title %}
+  
+
+{% block js %}
+
+  <script src="{% static 'js/calculator.js' %}"></script>
+
+{% endblock js %} 
+
+
+{% block style %}
+<style>
+  .gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+  }
+  .gold-text {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+{% endblock style %} 
+
+{% block content %}
+<main
+  class="flex-1 flex flex-col max-w-[1200px] mx-auto w-full px-4 py-8 gap-8"
+>
+  <!-- Page Heading -->
+  <div class="flex flex-col gap-3">
+    <h1 class="text-white text-4xl font-black leading-tight tracking-tight">
+      محاسبه آنلاین قیمت طلا
+    </h1>
+    <p class="text-[#92a4c9] text-lg font-normal max-w-2xl leading-relaxed">
+      با استفاده از این ابزار هوشمند، قیمت نهایی خرید طلا را با احتساب تمامی
+      متغیرهای بازار از جمله اجرت، مالیات و سود فروشنده به‌صورت دقیق محاسبه
+      کنید.
+    </p>
+  </div>
+  <!-- Dashboard Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Left Column: Calculator -->
+    <div class="lg:col-span-8 flex flex-col gap-6">
+      <div class="bg-[#1a2333] border border-[#324467] rounded-xl p-6 lg:p-8">
+        <div class="flex items-center gap-2 mb-6 border-b border-white/5 pb-4">
+          <span class="material-symbols-outlined text-accent-gold">calculate</span>
+          <h2 class="text-xl font-bold">ماشین حساب هوشمند</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Weight -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300"
+              >وزن طلا (گرم)</label
+            >
+            <div class="relative">
+              <input
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                step="0.001"
+                type="number"
+                name="weight"
+                placeholder="وزن طلای"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >گرم</span
+              >
+            </div>
+          </div>
+          <!-- Live Price -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300"
+              >قیمت لحظه‌ای هر گرم (۱۸ عیار)</label
+            >
+            <div class="relative">
+              <input
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                type="text"
+                name="price"
+                placeholder="قیمت روز طلا"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >تومان</span
+              >
+            </div>
+          </div>
+          <!-- Making Charge (Ejrat) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300">اجرت ساخت</label>
+            <div class="relative">
+              <input
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                type="number"
+                name="wages"
+                placeholder="مقدار اجرت ساخت"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >درصد</span
+              >
+            </div>
+          </div>
+          <!-- Profit (Sood) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300">سود فروشنده</label>
+            <div class="relative">
+              <input
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                type="number"
+                value="7"
+                name="profit"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >درصد</span
+              >
+            </div>
+          </div>
+          <!-- Tax (Maliat) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300"
+              >مالیات بر ارزش افزوده</label
+            >
+            <div class="relative">
+              <input
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                type="number"
+                value="9" name="tax"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >درصد</span
+              >
+            </div>
+          </div>
+          <!-- Carat (Ayar) -->
+          <div class="flex flex-col gap-2">
+            <label class="text-sm font-medium text-gray-300">عیار طلا</label>
+            <select name="carat"
+              class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all appearance-none"
+            >
+              <option selected="" value="18">18 عیار (استاندارد ایران)</option>
+              <option value="24">24 عیار (شمش)</option>
+              <option value="21">21 عیار (خلیجی)</option>
+            </select>
+          </div>
+          <!-- Stone Price -->
+          <div class="flex flex-col gap-2 md:col-span-2">
+            <label class="text-sm font-medium text-gray-300"
+              >قیمت سنگ و مخلفات (در صورت وجود)</label
+            >
+            <div class="relative">
+              <input  name="stone"
+                class="w-full bg-[#111722] border border-[#324467] rounded-lg px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                placeholder="0"
+                type="text"
+              />
+              <span class="absolute left-3 top-3 text-xs text-gray-500"
+                >تومان</span
+              >
+            </div>
+          </div>
+        </div>
+        <button  id="calculateBtn"
+          class="w-full mt-8 gold-gradient text-[#1a2333] font-bold text-lg py-4 rounded-xl shadow-lg shadow-accent-gold/20 hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+        >
+          <span class="material-symbols-outlined">payments</span>
+          محاسبه قیمت نهایی
+        </button>
+      </div>
+      <!-- Result Box -->
+      <div
+        class="bg-[#232f48] border-2 border-accent-gold/20 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative"
+      >
+        <div class="absolute -right-4 -top-4 opacity-5 pointer-events-none">
+          <span class="material-symbols-outlined text-[120px] text-gold"
+            >savings</span
+          >
+        </div>
+        <div class="flex flex-col gap-1 z-10 text-center md:text-right">
+          <h3 class="text-gold-light font-medium text-lg">
+            مبلغ نهایی قابل پرداخت:
+          </h3>
+          <p class="text-sm text-gray-400">با احتساب اجرت، سود و مالیات</p>
+        </div>
+        <div class="z-10 text-center md:text-left">
+          <span class="text-4xl md:text-5xl font-black gold-text" id="finalPrice"
+            >
+            ?
+            </span
+          >
+          <span class="text-xl text-gold-light mr-2">تومان</span>
+        </div>
+      </div>
+    </div>
+    <!-- Right Column: Market Rates -->
+    <div class="lg:col-span-4 flex flex-col gap-6">
+      <div class="flex items-center justify-between px-2">
+        <h3 class="text-white text-xl font-bold flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent-gold">trending_up</span>
+          نرخ‌های لحظه‌ای بازار
+        </h3>
+        <span class="text-xs text-[#92a4c9]">به‌روزرسانی: {{ market_last_update }}</span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4">
+
+        {% for rate in market_rates %}
+        <div class="bg-[#1a2333] border border-[#324467] rounded-xl p-4 flex items-center justify-between group hover:border-gold/50 transition-colors">
+            
+            <!-- آیکون و نام/قیمت -->
+            <div class="flex items-center gap-3">
+                <div class="{{ rate.icon_bg }} p-2 rounded-lg {{ rate.icon_color }} flex items-center justify-center">
+                    <span class="material-symbols-outlined">{{ rate.icon }}</span>
+                </div>
+                <div>
+                    <p class="text-gray-400 text-xs">{{ rate.label }}</p>
+                    <p class="text-white font-bold mt-1">
+                        {{ rate.price }}
+                        <span class="text-[10px] font-normal text-gray-500">{{ rate.unit }}</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- درصد تغییرات و آیکون ترند (بالا/پایین) -->
+            <div class="flex items-center gap-1 {{ rate.change_class }}">
+                <span class="text-xs font-bold">{{ rate.change_display }}</span>
+                <span class="material-symbols-outlined text-[16px]">{{ rate.trend_icon }}</span>
+            </div>
+
+        </div>
+        {% empty %}
+        <div class="bg-[#1a2333] border border-[#324467] rounded-xl p-4 text-center">
+            <p class="text-gray-400 text-sm">در حال حاضر امکان دریافت نرخ‌ها وجود ندارد.</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+      <div class="mt-4 p-4 rounded-xl bg-primary/10 border border-primary/20">
+        <p class="text-primary text-xs leading-relaxed">
+          تذکر: قیمت‌های فوق جنبه اطلاع‌رسانی دارد و با توجه به نوسانات شدید
+          بازار، ممکن است در لحظه معامله اندکی متفاوت باشد.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Promotional Banner -->
+  <div
+    class="mt-8 rounded-2xl overflow-hidden relative h-64 flex items-center px-12 bg-gradient-to-r from-[#1a2333] to-[#111722] border border-[#324467]"
+  >
+    <div class="flex flex-col gap-4 max-w-lg z-10">
+      <h2 class="text-3xl font-bold">سفارش جواهرات با طراحی اختصاصی</h2>
+      <p class="text-gray-400">
+        ما ایده‌های شما را به واقعیت تبدیل می‌کنیم. از طراحی تا ساخت نفیس‌ترین
+        قطعات طلا و جواهر در کنار شما هستیم.
+      </p>
+      <a
+        class="inline-flex w-fit bg-accent-gold text-[#1a2333] font-bold px-8 py-3 rounded-lg hover:scale-105 transition-transform"
+        href="#"
+        >مشاهده گالری</a
+      >
+    </div>
+    <div
+      class="absolute left-10 top-1/2 -translate-y-1/2 hidden md:block opacity-60"
+    >
+      <img
+        alt="Luxury Jewelry"
+        class="w-64 h-64 object-contain rounded-full border-4 border-gold/20 p-2"
+        data-alt="Luxury gold necklace on dark background"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3QfLYbnf793Te0pmryl5GKf0vyOLlfWi9Mz9G4EdO1p3MMxmT9rKibDVL-ZQbQXeszV-RoNxivZGln3Ns_Wx_wc2OHibFXYAVGsaABnBO_Yzs5EJy9xg8YYTSZv8t4LijFTQgMvQSVByLT3SubG9zNX48E9_ufSfW0VFsFQkWYYIe5q6-18Ca7vLm7zX_6JaKpR5o2sosijoMC1OJelQHolCraB3dXty2dLvSkrGozDbQFsBqkNm2KOb4EiJFC28xtlnLkfWoAUUo"
+      />
+    </div>
+  </div>
+</main>
+{% include 'footer.html' %}
+{% endblock content %}

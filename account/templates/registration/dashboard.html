@@ -1,0 +1,322 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load number_filters %}
+
+{% block title %}
+  پروفایل
+{% endblock title %}
+
+
+{% block content %}
+<main class="flex-1 px-4 lg:px-40 py-8 flex flex-col md:flex-row gap-8">
+  <!-- Side Navigation (Right Side in RTL) -->
+  <!-- Side Navigation (Right Side in RTL) -->
+  <aside class="w-full md:w-72 flex flex-col gap-4">
+    <div
+      class="bg-white dark:bg-card-dark rounded-xl p-4 shadow-sm border border-slate-200 dark:border-[#232f48]"
+    >
+      <div class="flex items-center gap-4 mb-8">
+        
+        {% if image_author %}
+        <img
+        class="size-12 rounded-full border-2 border-gold"
+        src="{{ user.image_author.url }}"
+        alt="پروفایل کاربری"
+        />
+        {% else %}
+        <img
+        class="size-12 rounded-full border-2 border-gold"
+        src="{% static 'image/contact.webp' %}"
+        alt="پروفایل کاربری"
+        />
+        {% endif %}
+        <div class="flex flex-col">
+          <h1 class="text-slate-900 dark:text-white text-base font-bold">
+            {{ request.user.full_name|default:request.user.full_name }}
+          </h1>
+          
+          {% if user_assets %}
+          <p class="text-slate-500 dark:text-[#92a4c9] text-xs">
+            کاربر سطح طلایی
+          </p>
+          {% else %}
+          <p class="text-slate-500 dark:text-[#92a4c9] text-xs">
+            کاربر سطح عادی
+          </p>
+          {% endif %}
+        </div>
+      </div>
+      <nav class="flex flex-col gap-2">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white shadow-lg shadow-primary/20" href="#">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="text-sm font-medium">سفارش‌های من</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#232f48] transition-colors" href="#">
+          <span class="material-symbols-outlined">person_outline</span>
+          <span class="text-sm font-medium">اطلاعات کاربری</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#232f48] transition-colors" href="#">
+          <span class="material-symbols-outlined">lock_reset</span>
+          <span class="text-sm font-medium">تغییر رمز عبور</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#232f48] transition-colors mt-12 border-t border-slate-100 dark:border-[#232f48] pt-6" href="{% url 'accounts:logout' %}">
+          <span class="material-symbols-outlined text-red-500">logout</span>
+         <form method="post" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">خروج</button>
+          </form>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col gap-6">
+    <!-- Page Heading & Stats -->
+        <section>
+      <div class="mb-6">
+        <h2 class="text-slate-900 dark:text-white text-3xl font-black tracking-tight">
+          پنل کاربری
+        </h2>
+        <p class="text-slate-500 dark:text-[#92a4c9] mt-1">
+          مدیریت خریدها و پروفایل شخصی شما در برند جواهرات
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+        <!-- ارزش کل دارایی -->
+        <div class="bg-white dark:bg-card-dark p-6 rounded-xl border border-slate-200 dark:border-[#324467] shadow-sm relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-1 h-full bg-gold"></div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">ارزش کل دارایی</p>
+          <p class="text-slate-900 dark:text-white text-xl font-bold"> {{ total_assets_value|smart_number }} تومان</p>
+          
+          {% if total_profit_amount >= 0 %}
+          <p class="text-green-500 text-xs font-bold mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">trending_up</span>
+            {{ total_profit_percent|smart_number }}٪ رشد کل
+          </p>
+          {% else %}
+          <p class="text-red-500 text-xs font-bold mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">trending_down</span>
+            {{ total_profit_percent|smart_number }}٪ کاهش کل
+          </p>
+          {% endif %}
+        </div>
+
+        <!-- سود انباشته -->
+        <div class="bg-white dark:bg-card-dark p-6 rounded-xl border border-slate-200 dark:border-[#324467] shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-1 h-full bg-primary"></div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">سود انباشته</p>
+          <p class="text-slate-900 dark:text-white text-xl font-bold">{{ total_profit_amount|smart_number }} تومان</p>
+          
+          {% if total_profit_amount >= 0 %}
+          <p class="text-green-500 text-xs font-bold mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">trending_up</span>
+             {{ total_profit_percent|smart_number }}٪ سود کل
+          </p>
+          {% else %}
+          <p class="text-red-500 text-xs font-bold mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">trending_down</span>
+             {{ total_profit_percent|smart_number }}٪ ضرر کل
+          </p>
+          {% endif %}
+        </div>
+
+        <!-- امتیاز وفاداری -->
+        <div class="bg-white dark:bg-card-dark p-6 rounded-xl border border-slate-200 dark:border-[#324467] shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-1 h-full bg-slate-400"></div>
+          <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mb-1">امتیاز وفاداری</p>
+          <p class="text-slate-900 dark:text-white text-xl font-bold">۴۵۰ امتیاز</p>
+          <p class="text-primary text-xs font-bold mt-2 flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">stars</span>
+            مشتری ویژه
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Orders Table -->
+    <section class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-[#232f48] shadow-sm overflow-hidden">
+      <div class="p-5 border-b border-slate-100 dark:border-[#232f48] flex justify-between items-center">
+        <h3 class="text-slate-900 dark:text-white text-lg font-bold">آخرین سفارش‌ها</h3>
+        <button class="text-primary dark:text-gold text-sm font-bold flex items-center gap-1">
+          <!--مشاهده همه-->
+          <span class="material-symbols-outlined text-sm">chevron_left</span>
+        </button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-right border-collapse">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-[#1a253a] text-slate-500 dark:text-[#92a4c9] text-sm">
+              <th class="px-6 py-4 font-bold">کالا</th>
+              <th class="px-6 py-4 font-bold">قیمت خرید</th>
+              <th class="px-6 py-4 font-bold">قیمت فعلی</th>
+              <th class="px-6 py-4 font-bold">سود / ضرر</th>
+              <th class="px-6 py-4 font-bold text-center">وضعیت</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-[#232f48]">
+            {% for asset in user_assets %}
+            <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <img class="size-10 rounded-lg border border-gold/30" src="{% static 'image/seke.png' %}" alt="{{ asset.title }}">
+                  <div class="flex flex-col">
+                    <span class="text-slate-900 dark:text-white text-sm font-bold">{{ asset.title }}</span>
+                    <span class="text-slate-400 text-xs">کد: {{ asset.code }}</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-slate-600 dark:text-slate-300 text-sm">{{ asset.buy_price|smart_number }} تومان</td>
+              <td class="px-6 py-4 text-slate-900 dark:text-white text-sm font-bold">{{ asset.current_price|smart_number }} تومان</td>
+              <td class="px-6 py-4">
+                {% if asset.profit_amount >= 0 %}
+                <span class="text-green-500 text-sm font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">arrow_upward</span>
+                  {{ asset.profit_amount|smart_number }}+
+                </span>
+                {% else %}
+                <span class="text-red-500 text-sm font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">arrow_downward</span>
+                  {{ asset.profit_amount|smart_number }}-
+                </span>
+                {% endif %}
+              </td>
+              <td class="px-6 py-4 text-center">
+                {% if asset.status == 'approved' %}
+                <span class="px-2 py-1 rounded bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-bold">تایید شده</span>
+                {% else %}
+                <span class="px-2 py-1 rounded bg-blue-100 dark:bg-primary/20 text-primary dark:text-primary text-xs font-bold">در انتظار تایید</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" class="text-center py-4 text-slate-500 dark:text-slate-400 text-sm">هیچ دارایی یافت نشد</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- User Profile Info -->
+      <section
+        class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-[#232f48] shadow-sm p-6"
+      >
+        <form method="POST">
+          {% csrf_token %}
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-gold"
+              >manage_accounts</span
+            >
+            <h3 class="text-slate-900 dark:text-white text-lg font-bold">
+              اطلاعات کاربری
+            </h3>
+          </div>
+          <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col gap-1">
+                <label class="text-xs text-slate-400 mr-1"
+                  >نام و نام خانوادگی</label
+                >
+                <input
+                  class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white"
+                  type="text"
+                  value="{{ request.user.full_name }}"
+                  name="full_name"
+                />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-xs text-slate-400 mr-1">شماره تماس</label>
+                <input
+                  class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white text-left dir-ltr"
+                  type="text"
+                  value="{{ request.user.phone_number }}"
+                  name="phone_number"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-xs text-slate-400 mr-1">آدرس پستی</label>
+              <textarea
+                class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white"
+                rows="2"
+                value="{{ user_form.address }}"ح
+                name="address"
+              >
+              </textarea
+            >
+            </div>
+            <button
+              class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg text-sm transition-all mt-4"
+              type="submit"
+            >
+              ذخیره تغییرات
+            </button>
+          </div>
+        </form>
+      </section>
+      <!-- Change Password -->
+      <section
+        class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-[#232f48] shadow-sm p-6"
+      >
+        <form method="POST">
+          {% csrf_token %}
+          <div class="flex items-center gap-3 mb-6">
+            <span class="material-symbols-outlined text-gold">lock_person</span>
+            <h3 class="text-slate-900 dark:text-white text-lg font-bold">
+              تغییر رمز عبور
+            </h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex flex-col gap-1">
+              <label class="text-xs text-slate-400 mr-1">رمز عبور فعلی</label>
+              <input
+                class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white"
+                placeholder="••••••••"
+                type="password"
+                name="old_password"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-xs text-slate-400 mr-1">رمز عبور جدید</label>
+              <input
+                class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white"
+                placeholder="حداقل ۸ کاراکتر"
+                type="password"
+                name="new_password1"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-xs text-slate-400 mr-1"
+                >تکرار رمز عبور جدید</label
+              >
+              <input
+                class="bg-slate-50 dark:bg-[#1a253a] border-slate-200 dark:border-[#324467] rounded-lg text-sm focus:ring-gold focus:border-gold dark:text-white"
+                placeholder="تکرار مجدد رمز عبور"
+                type="password"
+                name="new_password2"
+              />
+            </div>
+            <div class="p-3 rounded-lg bg-gold/5 border border-gold/20 mt-2">
+              <p class="text-[10px] text-gold leading-relaxed">
+                نکته: برای امنیت بیشتر، از ترکیب حروف بزرگ و کوچک، اعداد و نمادها
+                در رمز عبور خود استفاده کنید.
+              </p>
+            </div>
+            <button
+              class="w-full border-2 border-primary dark:border-gold text-primary dark:text-gold hover:bg-primary/5 dark:hover:bg-gold/5 font-bold py-2.5 rounded-lg text-sm transition-all mt-2"
+              type="submit"
+              >
+              به‌روزرسانی کلمه عبور
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</main>
+{% endblock content %}

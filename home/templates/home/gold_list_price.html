@@ -1,0 +1,174 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load persian_filters %}
+
+{% block title %}
+ قیمت سکه پارسیان امروز | قیمت لحظه‌ای تمامی وزن‌ها (۱۸ عیار)
+{% endblock title %}
+
+
+{% block head %}
+  
+    <meta name="description" content= "قیمت لحظه ای سکه پارسیان 18 عیار در وزن های مختلف، از 50 سوت، 100 سوت تا 600 سوت 900 سوتی و 1 یا 2 گرمی + بررسی نوسانات و اختلاف قیمت پارسیان اخیر">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content=" قیمت سکه پارسیان امروز | قیمت لحظه‌ای تمامی وزن‌ها (۱۸ عیار)">
+    <meta property="og:description" content= "قیمت لحظه ای سکه پارسیان 18 عیار در وزن های مختلف، از 50 سوت، 100 سوت تا 600 سوت 900 سوتی و 1 یا 2 گرمی + بررسی نوسانات و اختلاف قیمت پارسیان اخیر">
+    <meta property="og:image" content="https://goldestone.ir/static/image/logo.png">
+    <meta property="og:url" content="https://goldestone.ir/parsian-prices/">
+    <meta property="og:site_name" content="گلدستون؛ وبسایت آگاهی‌بخش طلا">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content=" قیمت سکه پارسیان امروز | قیمت لحظه‌ای تمامی وزن‌ها (۱۸ عیار)">
+    <meta name="twitter:description" content= "قیمت لحظه ای سکه پارسیان 18 عیار در وزن های مختلف، از 50 سوت، 100 سوت تا 600 سوت 900 سوتی و 1 یا 2 گرمی + بررسی نوسانات و اختلاف قیمت پارسیان اخیر">
+    <meta name="twitter:image" content="https://goldestone.ir/static/image/logo.png">
+    <meta name="twitter:image:alt" content="قیمت روز سکه پارسیان">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:image:alt" content="قیمت روز سکه پارسیان">
+
+    <link rel="canonical" href="https://goldestone.ir/parsian-prices/">
+    <meta name="keywords" content="قیمت سکه پارسیان امروز، قیمت روز سکه پارسیان، قیمت سکه پارسیان ۷۵۰ عیار، قیمت سکه پارسیان ۵۰ سوت، قیمت سکه پارسیان ۱۰۰ سوت، قیمت سکه پارسیان ۱۵۰ سوت، قیمت سکه پارسیان ۲۰۰ سوت، قیمت سکه پارسیان ۳۰۰ سوت، قیمت سکه پارسیان ۴۰۰ سوت، قیمت سکه پارسیان ۵۰۰ سوت، سکه پارسیان یک گرمی">
+{% endblock head %}
+
+
+{% block content %}
+<main class="max-w-[1200px] mx-auto px-6 py-10">
+  <!-- Page Heading & Controls -->
+  <div class="flex flex-col md:flex-row justify-between gap-6 mb-8">
+    <div class="flex flex-col gap-2">
+      <h1 class="text-1xl md:text-2xl font-black text-white">
+        قیمت امروز سکه پارسیان 750 عیار
+      </h1>
+      <div class="flex items-center gap-2 text-[#92a4c9]">
+        <span class="material-symbols-outlined text-sm">schedule</span>
+        <p class="text-sm font-normal leading-normal">
+            
+                    (بروزرسانی: {{ gold_last_updated_datetime|timesince }} پیش)
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!-- Main Content Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Price Table Section -->
+    <div class="lg:col-span-12">
+      <div
+        class="overflow-hidden rounded-xl border border-border-color bg-card-bg shadow-2xl shadow-black/50"
+      >
+        <div
+          class="p-6 border-b border-border-color flex justify-between items-center bg-card-bg/50"
+        >
+          <h2 class="text-lg font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-gold"
+              >payments</span
+            >
+            جدول قیمت‌ سکه‌های پارسیان
+          </h2>
+        
+        </div>
+        <table class="w-full text-right border-collapse">
+          <thead>
+            <tr class="bg-background-dark/60 text-accent-gold">
+              <th class="px-3 py-2 md:px-6 md:py-4 text-sm font-bold">
+              وزن سکه پارسیان
+
+              </th>
+              <th class="px-3 py-2 md:px-6 md:py-4 text-sm font-bold hidden md:table-cell">عیار</th>
+              <th class="px-3 py-2 md:px-6 md:py-4 text-sm font-bold">قیمت روز (تومان)</th>
+              <th class="px-3 py-2 md:px-6 md:py-4 text-sm font-bold">تغییرات ۲۴ ساعت</th>
+              <th class="px-3 py-2 md:px-6 md:py-4 text-sm font-bold hidden md:table-cell">وضعیت در گلدستون</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border-color">
+            {% for coin in coins %}
+            <tr
+              class="hover:bg-primary/5 transition-colors {% if coin.is_featured %}bg-accent-gold/10{% endif %}"
+            >
+              <td
+                class="px-3 py-2 md:px-6 md:py-4 text-sm font-medium {% if coin.is_featured %}text-accent-gold{% endif %}"
+              >
+                <h4>{{ coin.name }}</h4>  
+              {% if coin.is_featured %}<span
+                  class="text-accent-gold text-xs"
+                  >(پیشنهادی)</span
+                >{% endif %}
+                <small class=" md:hidden">(۱۸ عیار)</small>
+              </td>
+              <td class="px-3 py-2 md:px-6 md:py-4 text-sm text-[#92a4c9] hidden md:table-cell">۱۸ عیار (۷۵۰)</td>
+              <td class="px-3 py-2 md:px-6 md:py-4 text-lg font-bold text-white tracking-wider">
+                {{ coin.display_price|persian_price_toman }}
+              </td>
+              <td class="px-3 py-2 [direction:ltr]  md:px-6 md:py-4 text-sm font-bold {{ change_class }} ">
+                {{ change_percent }}
+              </td>
+              <td class="px-3 py-2 md:px-6 md:py-4 hidden md:table-cell">
+                {% if coin.is_in_stock %}
+                <span
+                  class="bg-primary/20 text-primary text-[10px] uppercase font-bold px-2 py-1 rounded border border-primary/30"
+                >
+                  موجود در انبار
+                </span>
+                {% else %}
+                <span
+                  class="bg-red-500/20 text-red-400 text-[10px] uppercase font-bold px-2 py-1 rounded border border-red-500/30"
+                >
+                  ناموجود
+                </span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div
+          class="p-4 bg-background-dark/40 flex justify-center border-t border-border-color"
+        ></div>
+      </div>
+    </div>
+    <!-- Currency & Gold Rates Section -->
+    <div class="lg:col-span-12 mt-4">
+      {% include 'includes/chart_gold_price.html' %}
+    </div>
+  </div>
+  <!-- Latest Articles / Branding Footer -->
+  <div
+    class="bg-gradient-to-l from-primary/10 to-transparent p-8 rounded-2xl border border-primary/20 flex flex-col md:flex-row items-center justify-between gap-8"
+  >
+    <div class="flex-1 space-y-4">
+      <h3 class="text-2xl font-bold text-white">
+        مشاوره خرید سکه پارسیان
+      </h3>
+      <p class="text-[#92a4c9] max-w-xl leading-relaxed">
+       توی گلدستون، با توجه به قیمت روز و شرایط بازار، بهت 
+      <b class="text-red-500">
+         مشاوره رایگان
+      </b>
+        میدیم تا بهترین تصمیم (با خیال راحت) برای پس‌اندازت بگیری.
+       </p>
+
+      <div class="flex gap-4">
+        <a
+          class="text-accent-gold border-b border-accent-gold pb-1 font-bold text-sm hover:text-white transition-colors"
+          href="{% url 'home:parsian' %}"
+          >
+          مشاوره رایگان خرید پارسیان
+          </a
+        >
+      </div>
+    </div>
+    <div class="hidden md:block size-48 flex-shrink-0 relative">
+      <div
+        class="absolute inset-0 bg-accent-gold/20 blur-3xl rounded-full"
+      ></div>
+      <img
+        class="w-full h-full object-contain relative z-10 drop-shadow-2xl"
+        data-alt="Gold coin stack aesthetic jewelry"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdpzsvWabc34pJ_LCu6l2lqbJb9tCf7da1fs8NNWD2jDPFBTjKQ_TN72U_AWbN_9eDRLQA_vQgdIHlVAZOcjoiYKYp3z3enSwupNbWys07aTNuVjdoVZAK_Z1dSO5NopX2yzd_6IhQEMJNn8AQz0LiPwPrAwKBmnee_da97LqbzzT8plnrPSEaHURv1RyXekZ9ORX0ZEkzHndp22I1LvhXYte0U3viUSeZfKfHxeIA-k9YI9ltkeTTguZjCHD9KdjW6H7eV1wPM65k"
+      />
+    </div>
+  </div>
+</main>
+{% include 'footer.html' %}
+{% endblock content %}
+

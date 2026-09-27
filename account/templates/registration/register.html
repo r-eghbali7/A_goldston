@@ -1,0 +1,189 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block title %}
+  ثبت نام
+{% endblock title %}
+
+{% block content %}
+<!-- Main Content Area -->
+<div class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
+  <div
+    class="flex flex-col lg:flex-row max-w-6xl w-full gap-10 lg:gap-16 items-start justify-center"
+  >
+    <!-- Left Side: Decorative Image & Text (Hidden on mobile) -->
+    <div class="hidden lg:flex flex-1 flex-col gap-6 sticky top-10">
+      <div
+        class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-2xl border border-slate-800"
+      >
+        <!-- Image Background -->
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          data-alt="Close up of luxury gold necklace jewelry on dark background"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuA3WC4hX4XYCCRVza0Fi6lNXtqHGNjz2GP_NfBrPyGmegmqSrxo3OGyNdxinDcbQuFACWTG79bvspSJukXsLboPyD2rv56GsEWs97Cg73ieVG8VWw4QN2ioW_tsmxHI82bYN7isBfh5YPfTGOgZ0jK3-yAvdmWaVJjSlEx915eSbzpJPEsprn7WUQeO2jCF0fEJk_ypKgefeIycbLVSZHdIZo5ljXZCueWTZXRqK_8erYf0si-7Bm9d8naJwKTHqlae7-YE5GDsx_Zp&quot;);
+          "
+        ></div>
+        <!-- Overlay Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent"
+        ></div>
+        <div class="absolute bottom-0 p-8 text-white z-10">
+          <div class="mb-4 text-primary-gold">
+            <span class="material-symbols-outlined text-5xl">auto_awesome</span>
+          </div>
+          <h1 class="text-3xl font-bold mb-3 leading-tight">
+           عضویت در گلدستون
+          </h1>
+          <p class="text-slate-300 text-lg leading-relaxed">
+           یعنی انتخاب یادگیری تا خرید آگاهانه...
+                      <br>
+           یعنی تجربه‌های طلاهای خاص با طراحی اختصاصی و رایگان...
+         <br>
+           یعنی شروع پس‌انداز و ساخت یه پشتوانه امن با مبالغ کوچیک...
+
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex gap-4 p-4 rounded-xl bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm"
+      >
+        <div
+          class="size-12 rounded-full bg-slate-700 flex items-center justify-center text-primary-gold shrink-0"
+        >
+          <span class="material-symbols-outlined">workspace_premium</span>
+        </div>
+        <div>
+          <h3 class="text-white font-bold text-lg">دسترسی VIP</h3>
+          <p class="text-slate-400 text-sm">
+            مشتری‌های گلدستون به مجموعه‌های جدید و اطلاع‌رسانی فرصت‌های خرید و فروش بازار طلا، زودتر از همه دسترسی دارند.          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Right Side: Registration Form -->
+    <div class="flex-1 w-full max-w-[520px] mx-auto lg:mx-0">
+      <div class="flex flex-col gap-8">
+        <!-- Form Header -->
+        <div class="flex flex-col gap-2">
+          <h1
+            class="text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] text-slate-900 dark:text-white"
+          >
+            ایجاد حساب <span class="text-primary-gold">کاربری</span>
+          </h1>
+          <p
+            class="text-slate-500 dark:text-[#92a4c9] text-base font-normal leading-normal"
+          >
+            برای شروع سفر خود در دنیای درخشان ما، اطلاعات زیر را تکمیل کنید.
+          </p>
+        </div>
+        <!-- Form Container -->
+
+        {% if form.errors %}
+          <div class="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+              {% for error in field.errors %}
+                <p>• {{ error }}</p>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <form
+          class="flex flex-col gap-5 bg-white dark:bg-[#192233] p-6 md:p-8 rounded-xl shadow-lg border border-slate-200 dark:border-[#232f48]"
+          method="post"
+        >
+          {% csrf_token %}
+          <!-- Username Field -->
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-slate-900 dark:text-white text-sm font-medium leading-normal flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg text-primary-gold"
+                >person</span
+              >
+              نام کاربری
+            </label>
+            <input
+              class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#324467] bg-slate-50 dark:bg-[#111722] text-slate-900 dark:text-white h-12 placeholder:text-slate-400 dark:placeholder:text-[#92a4c9] px-4 text-base font-normal leading-normal transition-all"
+              placeholder="نام خود را وارد کنید"
+              type="text"
+              name="full_name"
+              value="{{ form.full_name.value|default:'' }}"
+            />
+          </div>
+          <!-- Phone Number Field -->
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-slate-900 dark:text-white text-sm font-medium leading-normal flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg text-primary-gold"
+                >phone_iphone</span
+              >
+              شماره تماس
+            </label>
+            <input
+              class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#324467] bg-slate-50 dark:bg-[#111722] text-slate-900 dark:text-white h-12 placeholder:text-slate-400 dark:placeholder:text-[#92a4c9] px-4 text-base font-normal leading-normal transition-all text-left dir-ltr"
+              placeholder="0912..."
+              style="direction: ltr"
+              type="tel"
+              name="phone_number"
+              value="{{ form.phone_number.value|default:'' }}"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              class="text-slate-900 dark:text-white text-sm font-medium leading-normal flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg text-primary-gold"
+                >lock</span
+              >
+              رمز عبور
+            </label>
+            <div class="relative">
+              <input
+                class="form-input flex w-full min-w-0 resize-none overflow-hidden pr-10 pl-10 rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-[#324467] bg-slate-50 dark:bg-[#111722] text-slate-900 dark:text-white h-12 placeholder:text-slate-400 dark:placeholder:text-[#92a4c9] px-4 text-base font-normal leading-normal transition-all text-left"
+                placeholder="••••••••"
+                style="direction: rtl"
+                type="password"
+                name="password"
+              />
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400"
+              >
+                <span class="material-symbols-outlined text-xl"
+                  >visibility_off</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary hover:bg-blue-700 text-white text-base font-bold leading-normal tracking-[0.015em] transition-all shadow-lg shadow-primary/30 mt-2 gap-2"
+            type="submit"
+            >
+            <span>ثبت نام</span>
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+          </button>
+          <!-- Login Link -->
+          <div
+            class="text-center mt-4 pt-4 border-t border-slate-200 dark:border-slate-700"
+          >
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              قبلاً ثبت نام کرده‌اید؟
+              <a
+                class="text-primary-gold hover:text-yellow-400 font-bold mr-1 transition-colors"
+                href="#"
+                >وارد شوید</a
+              >
+            </p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

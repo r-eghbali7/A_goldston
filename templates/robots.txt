@@ -1,0 +1,66 @@
+# ==========================================
+# Global Rules for all Search Engines
+# ==========================================
+User-agent: *
+
+# --- Security & System (مسائل امنیتی) ---
+Disallow: /admin/
+Disallow: /coineshop/
+
+# --- Account & Auth (مدیریت حساب کاربری) ---
+Disallow: /account/
+Allow: /account/login/
+Allow: /account/register/
+
+# --- APIs & Raw Data (جلوگیری از افت سئو و هدررفت بودجه خزش) ---
+Disallow: /api/
+Disallow: /blog/api/
+Disallow: /blog/post/*/comment/
+
+# ==========================================
+# Block Spam, Scrapers & Unwanted Bots
+# (مسدودسازی ربات‌های غیرضروری برای کاهش بار سرور)
+# ==========================================
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: ScoutJet
+Disallow: /
+
+User-agent: gigabot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: nutch
+Disallow: /
+
+User-agent: scrubby
+Disallow: /
+
+# ==========================================
+# Sitemaps
+# ==========================================
+Sitemap: https://goldestone.ir/sitemap.xml
